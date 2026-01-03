@@ -1,0 +1,116 @@
+{
+    "categories": [
+        {
+            "id": "general",
+            "name": "General Knowledge",
+            "questions": [
+                {
+                    "id": 1,
+                    "text": "What is the capital city of France?",
+                    "options": [
+                        "Paris",
+                        "Rome",
+                        "Berlin",
+                        "Madrid"
+                    ],
+                    "answerIndex": 0
+                },
+                {
+                    "id": 2,
+                    "text": "Which planet is known as the Red Planet?",
+                    "options": [
+                        "Earth",
+                        "Mars",
+                        "Jupiter",
+                        "Venus"
+                    ],
+                    "answerIndex": 1
+                }
+            ]
+        },
+        {
+            "id": "history",
+            "name": "History",
+            "questions": [
+                {
+                    "id": 1,
+                    "text": "Who was the first President of the United States?",
+                    "options": [
+                        "George Washington",
+                        "Thomas Jefferson",
+                        "Abraham Lincoln",
+                        "John Adams"
+                    ],
+                    "answerIndex": 0
+                },
+                {
+                    "id": 2,
+                    "text": "In which year did World War II end?",
+                    "options": [
+                        "1943",
+                        "1945",
+                        "1947",
+                        "1950"
+                    ],
+                    "answerIndex": 1
+                }
+            ]
+        },
+        {
+            "id": "sports",
+            "name": "Sports",
+            "questions": [
+                {
+                    "id": 1,
+                    "text": "How many players are there on a football (soccer) team on the field?",
+                    "options": [
+                        "9",
+                        "10",
+                        "11",
+                        "12"
+                    ],
+                    "answerIndex": 2
+                },
+                {
+                    "id": 2,
+                    "text": "Which country hosted the 2016 Summer Olympics?",
+                    "options": [
+                        "China",
+                        "United Kingdom",
+                        "Brazil",
+                        "Japan"
+                    ],
+                    "answerIndex": 2
+                }
+            ]
+        },
+        {
+            "id": "tv_movies",
+            "name": "TV & Movies",
+            "questions": [
+                {
+                    "id": 1,
+                    "text": "Which movie features the character Darth Vader?",
+                    "options": [
+                        "Star Wars",
+                        "Star Trek",
+                        "Avatar",
+                        "The Matrix"
+                    ],
+                    "answerIndex": 0
+                },
+                {
+                    "id": 2,
+                    "text": "Which TV series is set in the fictional land of Westeros?",
+                    "options": [
+                        "Breaking Bad",
+                        "The Witcher",
+                        "Game of Thrones",
+                        "Vikings"
+                    ],
+                    "answerIndex": 2
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,532 @@
+:root {
+    --bg1: #050816;
+    --bg2: #0b1f4a;
+    --panel: #071a3a;
+    --gold: #f5c542;
+    --gold2: #ffdd6b;
+    --text: #f5f7ff;
+    --muted: #b9c2e8;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Poppins', system-ui, Arial, sans-serif;
+
+}
+
+body {
+    color: var(--text);
+    background:
+        radial-gradient(1200px 800px at 50% 20%, rgba(77, 150, 255, .25), transparent 55%),
+        radial-gradient(900px 700px at 20% 80%, rgba(6, 214, 160, .18), transparent 55%),
+        linear-gradient(160deg, var(--bg1), var(--bg2));
+}
+
+/* === Screen-fit layout with NO big gaps ===
+   Header = top
+   Stage  = middle (centers app)
+   Footer = bottom
+*/
+.page {
+    height: 100vh;
+    width: 100vw;
+
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+
+    justify-items: center;
+
+    padding: 8px;
+    /* smaller padding = less “air” */
+    overflow: hidden;
+}
+
+/* Header + footer */
+.app-header,
+.app-footer {
+    width: 100%;
+    max-width: 920px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    margin: 0;
+    /* ensure no default spacing */
+    padding: 0;
+    /* we control spacing manually */
+}
+
+.app-header {
+    padding-bottom: 4px;
+}
+
+.app-footer {
+    padding-top: 4px;
+}
+
+.toolbar {
+    position: absolute;
+    right: 0;
+}
+
+/* Brand */
+.brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    text-align: center;
+}
+
+/* Your logo is HUGE (156px). That forces the header row to be tall,
+   which creates the “too much space” feeling. Reduce it. */
+.logo {
+    width: 84px;
+    height: 84px;
+    object-fit: contain;
+    filter:
+        drop-shadow(0 0 12px rgba(245, 197, 66, .45)) drop-shadow(0 8px 16px rgba(0, 0, 0, .55));
+}
+
+/* Title */
+.app-title {
+    margin: 0;
+    font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    line-height: 1.05;
+    text-align: center;
+
+    color: #ffffff;
+    text-shadow:
+        0 0 10px rgba(245, 197, 66, .65),
+        0 10px 28px rgba(0, 0, 0, .75);
+}
+
+
+.app-tagline {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: clamp(0.7rem, 1.6vw, 0.95rem);
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold2);
+}
+
+.app,
+.muted {
+    font-weight: 400;
+    letter-spacing: 0.02em;
+}
+
+
+.stage {
+    width: 100%;
+    max-width: 920px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    padding-top: 8px;
+    overflow: hidden;
+}
+
+
+/* App panel */
+.app {
+    width: 100%;
+    max-height: 100%;
+
+    background: linear-gradient(180deg, rgba(7, 26, 58, .92), rgba(7, 26, 58, .78));
+    border: 1px solid rgba(245, 197, 66, .25);
+    border-radius: 18px;
+
+    padding: 18px;
+
+    box-shadow:
+        0 18px 60px rgba(0, 0, 0, .45),
+        0 0 0 6px rgba(245, 197, 66, .06);
+
+    overflow: auto;
+    /* if content is big, scroll INSIDE panel, not page */
+}
+
+.app::before {
+    content: "";
+    display: block;
+    height: 4px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, transparent, var(--gold), var(--gold2), var(--gold), transparent);
+    margin-bottom: 12px;
+    opacity: .95;
+}
+
+/* Buttons */
+.btn {
+    border: 1px solid rgba(245, 197, 66, .35);
+    background: rgba(0, 0, 0, .22);
+    color: var(--text);
+    border-radius: 12px;
+    padding: 10px 12px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.btn:hover {
+    box-shadow: 0 0 0 4px rgba(245, 197, 66, .12);
+}
+
+.app-footer {
+    justify-content: center;
+    color: var(--muted);
+    opacity: .9;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+/* Small screens: prevent overlaps */
+@media (max-width: 520px) {
+    .toolbar {
+        position: static;
+        margin-top: 6px;
+    }
+
+    .app-header {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* Short windows: compact */
+@media (max-height: 520px) {
+    .logo {
+        width: 52px;
+        height: 52px;
+    }
+
+    .app {
+        padding: 12px;
+    }
+}
+
+/* =========================
+   Game-show Buttons
+========================= */
+
+.btn-choice {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 240px;
+    /* ⬅️ bigger */
+    padding: 18px 28px;
+    /* ⬅️ taller & wider */
+
+    border-radius: 999px;
+    border: 2px solid rgba(245, 197, 66, .55);
+    background: rgba(0, 0, 0, .18);
+    color: var(--text);
+
+    font-size: 1.05rem;
+    /* ⬅️ clearer */
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease, border-color 120ms ease;
+}
+
+
+
+.btn-choice:hover {
+    transform: translateY(-1px);
+    background: rgba(245, 197, 66, .10);
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, .35),
+        0 0 0 5px rgba(245, 197, 66, .12);
+    border-color: rgba(255, 221, 107, .85);
+}
+
+.btn-choice:active {
+    transform: translateY(0px);
+    box-shadow: none;
+}
+
+.btn-choice:focus-visible {
+    outline: 3px solid rgba(77, 150, 255, .9);
+    outline-offset: 3px;
+}
+
+/* Secondary / navigation button (Back) */
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 140px;
+    padding: 10px 16px;
+
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, .25);
+    background: rgba(255, 255, 255, .06);
+    color: var(--muted);
+
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    transition: background 120ms ease, box-shadow 120ms ease, color 120ms ease;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, .12);
+    color: var(--text);
+}
+
+
+/* Layout for a row/stack of choices */
+.choice-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 14px;
+}
+
+/* Center the buttons in the card */
+.choice-row.center {
+    justify-content: flex-start;
+    /* left by default */
+}
+
+.choice-row.centered {
+    justify-content: center;
+}
+
+/* Make buttons fill width nicely on small screens */
+@media (max-width: 520px) {
+    .btn-choice {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .choice-row {
+        flex-direction: column;
+    }
+}
+
+.choice-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.choice-row.centered {
+    justify-content: center;
+}
+
+.btn-choice {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 180px;
+    padding: 12px 18px;
+
+    border-radius: 999px;
+    border: 2px solid rgba(245, 197, 66, .55);
+    background: rgba(0, 0, 0, .18);
+    color: var(--text);
+
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease, border-color 120ms ease;
+}
+
+.btn-choice:hover {
+    transform: translateY(-1px);
+    background: rgba(245, 197, 66, .10);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .35), 0 0 0 5px rgba(245, 197, 66, .12);
+    border-color: rgba(255, 221, 107, .85);
+}
+
+.btn-choice:focus-visible {
+    outline: 3px solid rgba(77, 150, 255, .9);
+    outline-offset: 3px;
+}
+
+@media (max-width:520px) {
+    .btn-choice {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .choice-row {
+        flex-direction: column;
+    }
+}
+
+.app h2 {
+    text-align: center;
+}
+
+/* =========================
+   Question Screen Styling
+========================= */
+
+.question-meta {
+    text-align: center;
+    color: var(--muted);
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+}
+
+.question-text {
+    text-align: center;
+    font-size: clamp(1.1rem, 2.2vw, 1.6rem);
+    font-weight: 800;
+    margin: 0 0 18px;
+    line-height: 1.25;
+}
+
+/* Answer list layout */
+.answers {
+    display: grid;
+    gap: 12px;
+    margin: 14px 0 18px;
+}
+
+/* Big “answer bar” buttons */
+.answer {
+    width: 100%;
+    text-align: left;
+
+    border-radius: 999px;
+    border: 2px solid rgba(245, 197, 66, .40);
+    background: rgba(0, 0, 0, .18);
+    color: var(--text);
+
+    padding: 14px 18px;
+    cursor: pointer;
+
+    font-weight: 700;
+    letter-spacing: 0.04em;
+
+    transition: transform 120ms ease, background 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+}
+
+.answer:hover {
+    transform: translateY(-1px);
+    background: rgba(245, 197, 66, .10);
+    border-color: rgba(255, 221, 107, .75);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, .35);
+}
+
+.answer:focus-visible {
+    outline: 3px solid rgba(77, 150, 255, .9);
+    outline-offset: 3px;
+}
+
+/* Selected answer (like “locked in”) */
+.answer.selected {
+    background: rgba(245, 197, 66, .18);
+    border-color: rgba(255, 221, 107, .95);
+    box-shadow: 0 0 0 6px rgba(245, 197, 66, .10);
+}
+
+
+/* Answer label (A / B / C / D) */
+.answer {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.answer-label {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    border: 2px solid rgba(255, 221, 107, .9);
+
+    color: var(--gold2);
+    font-weight: 900;
+    letter-spacing: 0.08em;
+}
+
+.answer.selected .answer-label {
+    background: rgba(245, 197, 66, .25);
+    color: #fff;
+}
+
+.answer-text {
+    text-align: left;
+    flex: 1;
+}
+
+
+/* Nav buttons area */
+.nav-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+/* Primary next button */
+.btn-primary {
+    border: 2px solid rgba(245, 197, 66, .65);
+    background: rgba(245, 197, 66, .18);
+    color: var(--text);
+    border-radius: 999px;
+    padding: 12px 18px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: rgba(245, 197, 66, .26);
+}
+
+/* Make nav buttons stack nicely on mobile */
+@media (max-width: 520px) {
+    .nav-row {
+        flex-direction: column;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+    }
+}

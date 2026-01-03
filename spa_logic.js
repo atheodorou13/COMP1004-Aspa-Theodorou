@@ -1,0 +1,241 @@
+const app = document.getElementById("app");
+const themeBtn = document.getElementById("themeBtn");
+
+const state = {
+    language: "en",
+    data: null,
+    categoryId: null,
+    qIndex: 0,
+    answers: []
+};
+
+/* ---------- UI translations (EN/GR) ---------- */
+const UI_TEXT = {
+    en: {
+        chooseLanguage: "Choose Language",
+        chooseCategory: "Select Category",
+        questionOf: (i, total) => `Question ${i} of ${total}`,
+        next: "Next",
+        back: "Back",
+        finish: "Finish",
+        results: "Results",
+        score: (s, total) => `Score: ${s} / ${total}`,
+        exportJson: "Export Results (JSON)",
+        playAgain: "Play Again",
+        selectAnswerFirst: "Select an answer first."
+    },
+    gr: {
+        chooseLanguage: "Επιλογή Γλώσσας",
+        chooseCategory: "Επιλογή Κατηγορίας",
+        questionOf: (i, total) => `Ερώτηση ${i} από ${total}`,
+        next: "Επόμενο",
+        back: "Πίσω",
+        finish: "Τέλος",
+        results: "Αποτελέσματα",
+        score: (s, total) => `Σκορ: ${s} / ${total}`,
+        exportJson: "Εξαγωγή Αποτελεσμάτων (JSON)",
+        playAgain: "Παίξε Ξανά",
+        selectAnswerFirst: "Διάλεξε πρώτα μια απάντηση."
+    }
+};
+
+function t(key, ...args) {
+    const dict = UI_TEXT[state.language] || UI_TEXT.en;
+    const value = dict[key];
+    return typeof value === "function" ? value(...args) : value;
+}
+
+/* ---------- Theme toggle ---------- */
+themeBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+});
+
+/* ---------- Views ---------- */
+function renderLanguageView() {
+    const view = el("div", { className: "card" }, [
+        // bilingual title is okay on first screen (user hasn't chosen yet)
+        el("h2", {}, ["Choose Language / Επιλογή Γλώσσας"]),
+
+        el("div", { className: "choice-row centered" }, [
+            el("button", {
+                className: "btn-choice",
+                type: "button",
+                onClick: async () => startWithLanguage("en")
+            }, ["English"]),
+
+            el("button", {
+                className: "btn-choice",
+                type: "button",
+                onClick: async () => startWithLanguage("gr")
+            }, ["Ελληνικά"])
+        ])
+    ]);
+
+    setView(app, view);
+}
+
+async function startWithLanguage(lang) {
+    state.language = lang;
+    state.data = await loadQuestions(lang);
+
+    state.categoryId = null;
+    state.qIndex = 0;
+    state.answers = [];
+
+    renderCategoryView();
+}
+
+function renderCategoryView() {
+    const categories = state.data.categories;
+
+    const view = el("div", { className: "card" }, [
+        el("h2", {}, [t("chooseCategory")]),
+
+        el("div", { className: "choice-row centered" },
+            categories.map(c =>
+                el("button", {
+                    className: "btn-choice",
+                    type: "button",
+                    onClick: () => {
+                        state.categoryId = c.id;
+                        state.qIndex = 0;
+                        state.answers = [];
+                        renderQuestionView();
+                    }
+                }, [c.name])
+            )
+        ),
+
+        el("div", { className: "choice-row centered" }, [
+            el("button", {
+                className: "btn-secondary",
+                type: "button",
+                onClick: renderLanguageView
+            }, [t("back")])
+        ])
+    ]);
+
+    setView(app, view);
+}
+
+function getActiveCategory() {
+    return state.data.categories.find(c => c.id === state.categoryId);
+}
+
+function renderQuestionView() {
+    const cat = getActiveCategory();
+    const questions = cat.questions;
+    const q = questions[state.qIndex];
+
+    const selected = state.answers[state.qIndex] ?? null;
+
+    const labels = state.language === "gr"
+        ? ["Α", "Β", "Γ", "Δ"]
+        : ["A", "B", "C", "D"];
+
+    const optionsList = el("div", { className: "answers" }, q.options.map((opt, idx) => {
+        return el("button", {
+            className: `answer${selected === idx ? " selected" : ""}`,
+            type: "button",
+            onClick: () => {
+                state.answers[state.qIndex] = idx;
+                renderQuestionView();
+            }
+        }, [
+            el("span", { className: "answer-label" }, [labels[idx]]),
+            el("span", { className: "answer-text" }, [opt])
+        ]);
+    }));
+
+    const view = el("div", { className: "card" }, [
+        el("p", { className: "question-meta" }, [t("questionOf", state.qIndex + 1, questions.length)]),
+        el("h3", { className: "question-text" }, [q.text]),
+        optionsList,
+
+        el("div", { className: "nav-row" }, [
+            el("button", {
+                className: "btn-secondary",
+                type: "button",
+                onClick: () => {
+                    if (state.qIndex === 0) return renderCategoryView();
+                    state.qIndex -= 1;
+                    renderQuestionView();
+                }
+            }, [t("back")]),
+
+            el("button", {
+                className: "btn-primary",
+                type: "button",
+                onClick: () => {
+                    const chosen = state.answers[state.qIndex];
+                    if (chosen === undefined || chosen === null) return alert(t("selectAnswerFirst"));
+
+                    if (state.qIndex < questions.length - 1) {
+                        state.qIndex += 1;
+                        renderQuestionView();
+                    } else {
+                        renderResultsView();
+                    }
+                }
+            }, [state.qIndex < questions.length - 1 ? t("next") : t("finish")])
+        ])
+    ]);
+
+    setView(app, view);
+}
+
+function renderResultsView() {
+    const cat = getActiveCategory();
+    const questions = cat.questions;
+
+    let score = 0;
+    questions.forEach((q, i) => {
+        if (state.answers[i] === q.answerIndex) score += 1;
+    });
+
+    const resultObj = {
+        project: "Trivia Fiesta",
+        timestamp: new Date().toISOString(),
+        language: state.language,
+        categoryId: cat.id,
+        totalQuestions: questions.length,
+        score: score,
+        answers: questions.map((q, i) => ({
+            questionId: q.id,
+            selectedIndex: state.answers[i] ?? null,
+            correctIndex: q.answerIndex
+        }))
+    };
+
+    const view = el("div", { className: "card" }, [
+        el("h2", {}, [t("results")]),
+        el("p", { className: "muted" }, [t("score", score, questions.length)]),
+
+        el("div", { className: "choice-row centered" }, [
+            el("button", {
+                className: "btn-choice",
+                type: "button",
+                onClick: () => {
+                    const blob = new Blob([JSON.stringify(resultObj, null, 2)], { type: "application/json" });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement("a");
+                    a.href = url;
+                    a.download = "trivia-fiesta-results.json";
+                    a.click();
+                    URL.revokeObjectURL(url);
+                }
+            }, [t("exportJson")]),
+
+            el("button", {
+                className: "btn-secondary",
+                type: "button",
+                onClick: renderCategoryView
+            }, [t("playAgain")])
+        ])
+    ]);
+
+    setView(app, view);
+}
+
+/* ---------- Start ---------- */
+renderLanguageView();
