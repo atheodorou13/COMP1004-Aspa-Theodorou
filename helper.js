@@ -1,17 +1,35 @@
 function el(tag, attrs = {}, children = []) {
     const node = document.createElement(tag);
+
     for (const [k, v] of Object.entries(attrs)) {
-        if (k === "className") node.className = v;
-        else if (k.startsWith("on") && typeof v === "function") node.addEventListener(k.slice(2).toLowerCase(), v);
-        else node.setAttribute(k, v);
+        if (k === "className") {
+            node.className = v;
+            continue;
+        }
+
+        // Support both onClick and onclick, etc.
+        if ((k.startsWith("on") || k.startsWith("on")) && typeof v === "function") {
+            const eventName = k.slice(2).toLowerCase();
+            node.addEventListener(eventName, v);
+            continue;
+        }
+
+        // Handle common DOM properties safely
+        if (k in node && typeof v !== "object") {
+            node[k] = v;
+            continue;
+        }
+
+        node.setAttribute(k, String(v));
     }
+
     for (const child of children) {
         node.appendChild(typeof child === "string" ? document.createTextNode(child) : child);
     }
+
     return node;
 }
 
 function setView(container, viewNode) {
-    container.innerHTML = "";
-    container.appendChild(viewNode);
+    container.replaceChildren(viewNode);
 }
