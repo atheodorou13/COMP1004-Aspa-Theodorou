@@ -530,3 +530,22 @@ body {
         width: 100%;
     }
 }
+
+/* Correct / Wrong feedback */
+.answer.correct {
+    border-color: #3ddc84;
+    background: rgba(61, 220, 132, 0.18);
+    box-shadow: 0 0 0 6px rgba(61, 220, 132, 0.15);
+}
+
+.answer.wrong {
+    border-color: #ff5c5c;
+    background: rgba(255, 92, 92, 0.18);
+    box-shadow: 0 0 0 6px rgba(255, 92, 92, 0.15);
+}
+
+/* Disable hover once answered */
+.answer.disabled {
+    pointer-events: none;
+    opacity: 0.95;
+}

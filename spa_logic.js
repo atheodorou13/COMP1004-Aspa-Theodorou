@@ -6,10 +6,11 @@ const state = {
     data: null,
     categoryId: null,
     qIndex: 0,
-    answers: []
+    answers: [],
+    answered: false
 };
 
-/* ---------- UI translations (EN/GR) ---------- */
+/* ---------- UI translations ---------- */
 const UI_TEXT = {
     en: {
         chooseLanguage: "Choose Language",
@@ -50,47 +51,35 @@ themeBtn.addEventListener("click", () => {
     document.body.classList.toggle("dark");
 });
 
-/* ---------- Views ---------- */
+/* ---------- Language view ---------- */
 function renderLanguageView() {
     const view = el("div", { className: "card" }, [
-        // bilingual title is okay on first screen (user hasn't chosen yet)
         el("h2", {}, ["Choose Language / Επιλογή Γλώσσας"]),
-
         el("div", { className: "choice-row centered" }, [
-            el("button", {
-                className: "btn-choice",
-                type: "button",
-                onClick: async () => startWithLanguage("en")
-            }, ["English"]),
-
-            el("button", {
-                className: "btn-choice",
-                type: "button",
-                onClick: async () => startWithLanguage("gr")
-            }, ["Ελληνικά"])
+            el("button", { className: "btn-choice", type: "button", onClick: () => startWithLanguage("en") }, ["English"]),
+            el("button", { className: "btn-choice", type: "button", onClick: () => startWithLanguage("gr") }, ["Ελληνικά"])
         ])
     ]);
-
     setView(app, view);
 }
 
+/* ---------- Load language ---------- */
 async function startWithLanguage(lang) {
     state.language = lang;
     state.data = await loadQuestions(lang);
-
     state.categoryId = null;
     state.qIndex = 0;
     state.answers = [];
-
+    state.answered = false;
     renderCategoryView();
 }
 
+/* ---------- Category view ---------- */
 function renderCategoryView() {
     const categories = state.data.categories;
 
     const view = el("div", { className: "card" }, [
         el("h2", {}, [t("chooseCategory")]),
-
         el("div", { className: "choice-row centered" },
             categories.map(c =>
                 el("button", {
@@ -100,18 +89,14 @@ function renderCategoryView() {
                         state.categoryId = c.id;
                         state.qIndex = 0;
                         state.answers = [];
+                        state.answered = false;
                         renderQuestionView();
                     }
                 }, [c.name])
             )
         ),
-
         el("div", { className: "choice-row centered" }, [
-            el("button", {
-                className: "btn-secondary",
-                type: "button",
-                onClick: renderLanguageView
-            }, [t("back")])
+            el("button", { className: "btn-secondary", type: "button", onClick: renderLanguageView }, [t("back")])
         ])
     ]);
 
@@ -122,56 +107,67 @@ function getActiveCategory() {
     return state.data.categories.find(c => c.id === state.categoryId);
 }
 
+/* ---------- Question view ---------- */
 function renderQuestionView() {
     const cat = getActiveCategory();
     const questions = cat.questions;
     const q = questions[state.qIndex];
 
-    const selected = state.answers[state.qIndex] ?? null;
-
     const labels = state.language === "gr"
         ? ["Α", "Β", "Γ", "Δ"]
         : ["A", "B", "C", "D"];
 
-    const optionsList = el("div", { className: "answers" }, q.options.map((opt, idx) => {
-        return el("button", {
-            className: `answer${selected === idx ? " selected" : ""}`,
-            type: "button",
-            onClick: () => {
-                state.answers[state.qIndex] = idx;
-                renderQuestionView();
+    const optionsList = el("div", { className: "answers" },
+        q.options.map((opt, idx) => {
+            const isSelected = state.answers[state.qIndex] === idx;
+            const isCorrect = idx === q.answerIndex;
+
+            let cls = "answer";
+            if (state.answered) {
+                if (isCorrect) cls += " correct";
+                else if (isSelected) cls += " wrong";
+                else cls += " disabled";
             }
-        }, [
-            el("span", { className: "answer-label" }, [labels[idx]]),
-            el("span", { className: "answer-text" }, [opt])
-        ]);
-    }));
+
+            return el("button", {
+                className: cls,
+                type: "button",
+                onClick: () => {
+                    if (state.answered) return;
+                    state.answers[state.qIndex] = idx;
+                    state.answered = true;
+                    renderQuestionView();
+                }
+            }, [
+                el("span", { className: "answer-label" }, [labels[idx]]),
+                el("span", { className: "answer-text" }, [opt])
+            ]);
+        })
+    );
 
     const view = el("div", { className: "card" }, [
         el("p", { className: "question-meta" }, [t("questionOf", state.qIndex + 1, questions.length)]),
         el("h3", { className: "question-text" }, [q.text]),
         optionsList,
-
         el("div", { className: "nav-row" }, [
             el("button", {
                 className: "btn-secondary",
                 type: "button",
                 onClick: () => {
+                    state.answered = false;
                     if (state.qIndex === 0) return renderCategoryView();
-                    state.qIndex -= 1;
+                    state.qIndex--;
                     renderQuestionView();
                 }
             }, [t("back")]),
-
             el("button", {
                 className: "btn-primary",
                 type: "button",
                 onClick: () => {
-                    const chosen = state.answers[state.qIndex];
-                    if (chosen === undefined || chosen === null) return alert(t("selectAnswerFirst"));
-
+                    if (!state.answered) return alert(t("selectAnswerFirst"));
+                    state.answered = false;
                     if (state.qIndex < questions.length - 1) {
-                        state.qIndex += 1;
+                        state.qIndex++;
                         renderQuestionView();
                     } else {
                         renderResultsView();
@@ -184,13 +180,14 @@ function renderQuestionView() {
     setView(app, view);
 }
 
+/* ---------- Results view ---------- */
 function renderResultsView() {
     const cat = getActiveCategory();
     const questions = cat.questions;
 
     let score = 0;
     questions.forEach((q, i) => {
-        if (state.answers[i] === q.answerIndex) score += 1;
+        if (state.answers[i] === q.answerIndex) score++;
     });
 
     const resultObj = {
@@ -199,7 +196,7 @@ function renderResultsView() {
         language: state.language,
         categoryId: cat.id,
         totalQuestions: questions.length,
-        score: score,
+        score,
         answers: questions.map((q, i) => ({
             questionId: q.id,
             selectedIndex: state.answers[i] ?? null,
@@ -210,7 +207,6 @@ function renderResultsView() {
     const view = el("div", { className: "card" }, [
         el("h2", {}, [t("results")]),
         el("p", { className: "muted" }, [t("score", score, questions.length)]),
-
         el("div", { className: "choice-row centered" }, [
             el("button", {
                 className: "btn-choice",
@@ -225,7 +221,6 @@ function renderResultsView() {
                     URL.revokeObjectURL(url);
                 }
             }, [t("exportJson")]),
-
             el("button", {
                 className: "btn-secondary",
                 type: "button",
