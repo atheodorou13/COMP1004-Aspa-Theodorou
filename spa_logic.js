@@ -26,16 +26,16 @@ const UI_TEXT = {
         selectAnswerFirst: "Select an answer first."
     },
     gr: {
-        chooseLanguage: "Επιλογή Γλώσσας",
+        chooseLanguage: "Επιλογη Γλωσσας",
         chooseCategory: "Επιλογή Κατηγορίας",
-        questionOf: (i, total) => `Ερώτηση ${i} από ${total}`,
-        next: "Επόμενο",
-        back: "Πίσω",
-        finish: "Τέλος",
+        questionOf: (i, total) => `Ερωτηση ${i} απο ${total}`,
+        next: "Επομενο",
+        back: "Πισω",
+        finish: "Τελος",
         results: "Αποτελέσματα",
         score: (s, total) => `Σκορ: ${s} / ${total}`,
-        exportJson: "Εξαγωγή Αποτελεσμάτων (JSON)",
-        playAgain: "Παίξε Ξανά",
+        exportJson: "Εξαγωγη Αποτελεσματων (JSON)",
+        playAgain: "Παιξε Ξανα",
         selectAnswerFirst: "Διάλεξε πρώτα μια απάντηση."
     }
 };
@@ -57,7 +57,7 @@ function renderLanguageView() {
         el("h2", {}, ["Choose Language / Επιλογή Γλώσσας"]),
         el("div", { className: "choice-row centered" }, [
             el("button", { className: "btn-choice", type: "button", onClick: () => startWithLanguage("en") }, ["English"]),
-            el("button", { className: "btn-choice", type: "button", onClick: () => startWithLanguage("gr") }, ["Ελληνικά"])
+            el("button", { className: "btn-choice", type: "button", onClick: () => startWithLanguage("gr") }, ["Ελληνικα"])
         ])
     ]);
     setView(app, view);

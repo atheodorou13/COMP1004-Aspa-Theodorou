@@ -6,25 +6,113 @@
             "questions": [
                 {
                     "id": 1,
-                    "text": "What is the capital city of France?",
+                    "text": "What is the capital city of Canada?",
                     "options": [
-                        "Paris",
-                        "Rome",
-                        "Berlin",
-                        "Madrid"
+                        "Ottawa",
+                        "Toronto",
+                        "Vancouver",
+                        "Montreal"
                     ],
                     "answerIndex": 0
                 },
                 {
                     "id": 2,
+                    "text": "How many continents are there on Earth?",
+                    "options": [
+                        "5",
+                        "6",
+                        "7",
+                        "8"
+                    ],
+                    "answerIndex": 2
+                },
+                {
+                    "id": 3,
                     "text": "Which planet is known as the Red Planet?",
                     "options": [
-                        "Earth",
+                        "Venus",
                         "Mars",
                         "Jupiter",
-                        "Venus"
+                        "Saturn"
                     ],
                     "answerIndex": 1
+                },
+                {
+                    "id": 4,
+                    "text": "What is the largest ocean on Earth?",
+                    "options": [
+                        "Atlantic Ocean",
+                        "Indian Ocean",
+                        "Pacific Ocean",
+                        "Arctic Ocean"
+                    ],
+                    "answerIndex": 2
+                },
+                {
+                    "id": 5,
+                    "text": "Which element has the chemical symbol 'O'?",
+                    "options": [
+                        "Gold",
+                        "Oxygen",
+                        "Osmium",
+                        "Iron"
+                    ],
+                    "answerIndex": 1
+                },
+                {
+                    "id": 6,
+                    "text": "How many days are there in a leap year?",
+                    "options": [
+                        "364",
+                        "365",
+                        "366",
+                        "367"
+                    ],
+                    "answerIndex": 2
+                },
+                {
+                    "id": 7,
+                    "text": "What is the currency of Japan?",
+                    "options": [
+                        "Won",
+                        "Yuan",
+                        "Yen",
+                        "Dollar"
+                    ],
+                    "answerIndex": 2
+                },
+                {
+                    "id": 8,
+                    "text": "Which animal is known as the King of the Jungle?",
+                    "options": [
+                        "Tiger",
+                        "Elephant",
+                        "Lion",
+                        "Leopard"
+                    ],
+                    "answerIndex": 2
+                },
+                {
+                    "id": 9,
+                    "text": "Which country is home to the Great Barrier Reef?",
+                    "options": [
+                        "USA",
+                        "Australia",
+                        "Brazil",
+                        "South Africa"
+                    ],
+                    "answerIndex": 1
+                },
+                {
+                    "id": 10,
+                    "text": "What is the boiling point of water at sea level?",
+                    "options": [
+                        "90°C",
+                        "95°C",
+                        "100°C",
+                        "110°C"
+                    ],
+                    "answerIndex": 2
                 }
             ]
         },
@@ -48,9 +136,97 @@
                     "text": "In which year did World War II end?",
                     "options": [
                         "1943",
+                        "1944",
                         "1945",
-                        "1947",
-                        "1950"
+                        "1946"
+                    ],
+                    "answerIndex": 2
+                },
+                {
+                    "id": 3,
+                    "text": "Which ancient civilization built the pyramids?",
+                    "options": [
+                        "Romans",
+                        "Greeks",
+                        "Egyptians",
+                        "Aztecs"
+                    ],
+                    "answerIndex": 2
+                },
+                {
+                    "id": 4,
+                    "text": "Who was known as the 'Iron Lady'?",
+                    "options": [
+                        "Queen Elizabeth II",
+                        "Margaret Thatcher",
+                        "Angela Merkel",
+                        "Indira Gandhi"
+                    ],
+                    "answerIndex": 1
+                },
+                {
+                    "id": 5,
+                    "text": "The Berlin Wall fell in which year?",
+                    "options": [
+                        "1987",
+                        "1988",
+                        "1989",
+                        "1990"
+                    ],
+                    "answerIndex": 2
+                },
+                {
+                    "id": 6,
+                    "text": "Who discovered America in 1492?",
+                    "options": [
+                        "Christopher Columbus",
+                        "Marco Polo",
+                        "Vasco da Gama",
+                        "Ferdinand Magellan"
+                    ],
+                    "answerIndex": 0
+                },
+                {
+                    "id": 7,
+                    "text": "Which war was fought between the North and South regions in the United States?",
+                    "options": [
+                        "World War I",
+                        "Civil War",
+                        "Revolutionary War",
+                        "Cold War"
+                    ],
+                    "answerIndex": 1
+                },
+                {
+                    "id": 8,
+                    "text": "Who was the first man to walk on the Moon?",
+                    "options": [
+                        "Buzz Aldrin",
+                        "Yuri Gagarin",
+                        "Neil Armstrong",
+                        "Michael Collins"
+                    ],
+                    "answerIndex": 2
+                },
+                {
+                    "id": 9,
+                    "text": "Which empire was ruled by Julius Caesar?",
+                    "options": [
+                        "Greek Empire",
+                        "Roman Empire",
+                        "Ottoman Empire",
+                        "British Empire"
+                    ],
+                    "answerIndex": 1
+                },
+                {
+                    "id": 10,
+                    "text": "The Titanic sank in which year?",
+                    "options": [
+                        "1905",
+                        "1912",
+                        "1918",
+                        "1923"
                     ],
                     "answerIndex": 1
                 }
@@ -62,7 +238,7 @@
             "questions": [
                 {
                     "id": 1,
-                    "text": "How many players are there on a football (soccer) team on the field?",
+                    "text": "How many players are on a football (soccer) team on the field?",
                     "options": [
                         "9",
                         "10",
@@ -73,14 +249,102 @@
                 },
                 {
                     "id": 2,
-                    "text": "Which country hosted the 2016 Summer Olympics?",
+                    "text": "Which country won the FIFA World Cup in 2018?",
                     "options": [
-                        "China",
-                        "United Kingdom",
+                        "Germany",
                         "Brazil",
-                        "Japan"
+                        "France",
+                        "Argentina"
                     ],
                     "answerIndex": 2
+                },
+                {
+                    "id": 3,
+                    "text": "In tennis, what is the term for a score of zero?",
+                    "options": [
+                        "Nil",
+                        "Zero",
+                        "Love",
+                        "Blank"
+                    ],
+                    "answerIndex": 2
+                },
+                {
+                    "id": 4,
+                    "text": "Which sport uses a shuttlecock?",
+                    "options": [
+                        "Tennis",
+                        "Badminton",
+                        "Squash",
+                        "Table Tennis"
+                    ],
+                    "answerIndex": 1
+                },
+                {
+                    "id": 5,
+                    "text": "How many rings are on the Olympic flag?",
+                    "options": [
+                        "4",
+                        "5",
+                        "6",
+                        "7"
+                    ],
+                    "answerIndex": 1
+                },
+                {
+                    "id": 6,
+                    "text": "In which sport would you perform a slam dunk?",
+                    "options": [
+                        "Volleyball",
+                        "Basketball",
+                        "Handball",
+                        "Rugby"
+                    ],
+                    "answerIndex": 1
+                },
+                {
+                    "id": 7,
+                    "text": "Which country is famous for cricket?",
+                    "options": [
+                        "USA",
+                        "India",
+                        "Japan",
+                        "Spain"
+                    ],
+                    "answerIndex": 1
+                },
+                {
+                    "id": 8,
+                    "text": "How long is an Olympic swimming pool?",
+                    "options": [
+                        "25m",
+                        "50m",
+                        "75m",
+                        "100m"
+                    ],
+                    "answerIndex": 1
+                },
+                {
+                    "id": 9,
+                    "text": "Which sport is associated with Wimbledon?",
+                    "options": [
+                        "Golf",
+                        "Tennis",
+                        "Cricket",
+                        "Rugby"
+                    ],
+                    "answerIndex": 1
+                },
+                {
+                    "id": 10,
+                    "text": "Which athlete is known as the fastest man in the world?",
+                    "options": [
+                        "Usain Bolt",
+                        "Mo Farah",
+                        "Cristiano Ronaldo",
+                        "Lionel Messi"
+                    ],
+                    "answerIndex": 0
                 }
             ]
         },
@@ -90,23 +354,111 @@
             "questions": [
                 {
                     "id": 1,
-                    "text": "Which movie features the character Darth Vader?",
+                    "text": "Who directed the movie 'Titanic'?",
                     "options": [
-                        "Star Wars",
-                        "Star Trek",
-                        "Avatar",
-                        "The Matrix"
+                        "Steven Spielberg",
+                        "James Cameron",
+                        "Christopher Nolan",
+                        "Martin Scorsese"
                     ],
-                    "answerIndex": 0
+                    "answerIndex": 1
                 },
                 {
                     "id": 2,
-                    "text": "Which TV series is set in the fictional land of Westeros?",
+                    "text": "Which TV series features the Stark family?",
                     "options": [
                         "Breaking Bad",
-                        "The Witcher",
                         "Game of Thrones",
+                        "The Witcher",
                         "Vikings"
+                    ],
+                    "answerIndex": 1
+                },
+                {
+                    "id": 3,
+                    "text": "Who played Iron Man in the Marvel Cinematic Universe?",
+                    "options": [
+                        "Chris Evans",
+                        "Chris Hemsworth",
+                        "Robert Downey Jr.",
+                        "Mark Ruffalo"
+                    ],
+                    "answerIndex": 2
+                },
+                {
+                    "id": 4,
+                    "text": "What is the name of the wizarding school in Harry Potter?",
+                    "options": [
+                        "Durmstrang",
+                        "Beauxbatons",
+                        "Hogwarts",
+                        "Ilvermorny"
+                    ],
+                    "answerIndex": 2
+                },
+                {
+                    "id": 5,
+                    "text": "Which animated movie features the character Elsa?",
+                    "options": [
+                        "Moana",
+                        "Frozen",
+                        "Tangled",
+                        "Brave"
+                    ],
+                    "answerIndex": 1
+                },
+                {
+                    "id": 6,
+                    "text": "Who is the main character in the series 'Friends'?",
+                    "options": [
+                        "Ross",
+                        "Rachel",
+                        "Monica",
+                        "There is no single main character"
+                    ],
+                    "answerIndex": 3
+                },
+                {
+                    "id": 7,
+                    "text": "Which movie features the quote 'I'll be back'?",
+                    "options": [
+                        "Rambo",
+                        "The Terminator",
+                        "Rocky",
+                        "Die Hard"
+                    ],
+                    "answerIndex": 1
+                },
+                {
+                    "id": 8,
+                    "text": "Which streaming platform produced 'Stranger Things'?",
+                    "options": [
+                        "Amazon Prime",
+                        "Netflix",
+                        "Disney+",
+                        "Hulu"
+                    ],
+                    "answerIndex": 1
+                },
+                {
+                    "id": 9,
+                    "text": "Who played Jack Sparrow in Pirates of the Caribbean?",
+                    "options": [
+                        "Orlando Bloom",
+                        "Johnny Depp",
+                        "Leonardo DiCaprio",
+                        "Brad Pitt"
+                    ],
+                    "answerIndex": 1
+                },
+                {
+                    "id": 10,
+                    "text": "Which movie won Best Picture at the Oscars in 2020?",
+                    "options": [
+                        "1917",
+                        "Joker",
+                        "Parasite",
+                        "Ford v Ferrari"
                     ],
                     "answerIndex": 2
                 }
