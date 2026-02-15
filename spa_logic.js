@@ -7,8 +7,18 @@ const state = {
     categoryId: null,
     qIndex: 0,
     answers: [],
-    answered: false
+    answered: false,
+    questions: []
 };
+
+function shuffleArray(array) {
+    const arr = [...array];
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}
 
 /* ---------- UI translations ---------- */
 const UI_TEXT = {
@@ -48,8 +58,15 @@ function t(key, ...args) {
 
 /* ---------- Theme toggle ---------- */
 themeBtn.addEventListener("click", () => {
-    document.body.classList.toggle("dark");
+    document.body.classList.toggle("light");
+
+    if (document.body.classList.contains("light")) {
+        themeBtn.textContent = "☀️";
+    } else {
+        themeBtn.textContent = "🌙";
+    }
 });
+
 
 /* ---------- Language view ---------- */
 function renderLanguageView() {
@@ -90,6 +107,8 @@ function renderCategoryView() {
                         state.qIndex = 0;
                         state.answers = [];
                         state.answered = false;
+                        const selectedCategory = state.data.categories.find(cat => cat.id === c.id);
+                        state.questions = shuffleArray(selectedCategory.questions);
                         renderQuestionView();
                     }
                 }, [c.name])
@@ -109,9 +128,9 @@ function getActiveCategory() {
 
 /* ---------- Question view ---------- */
 function renderQuestionView() {
-    const cat = getActiveCategory();
-    const questions = cat.questions;
+    const questions = state.questions;
     const q = questions[state.qIndex];
+
 
     const labels = state.language === "gr"
         ? ["Α", "Β", "Γ", "Δ"]
@@ -183,7 +202,7 @@ function renderQuestionView() {
 /* ---------- Results view ---------- */
 function renderResultsView() {
     const cat = getActiveCategory();
-    const questions = cat.questions;
+    const questions = state.questions;
 
     let score = 0;
     questions.forEach((q, i) => {

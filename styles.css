@@ -8,6 +8,17 @@
     --muted: #b9c2e8;
 }
 
+body.light {
+    --bg1: #f4f7ff;
+    --bg2: #dbe6ff;
+    --panel: #ffffff;
+    --gold: #d4a017;
+    --gold2: #e6b800;
+    --text: #1a1a1a;
+    --muted: #555;
+}
+
+
 * {
     box-sizing: border-box;
 }
@@ -147,7 +158,7 @@ body {
     width: 100%;
     max-height: 100%;
 
-    background: linear-gradient(180deg, rgba(7, 26, 58, .92), rgba(7, 26, 58, .78));
+    background: linear-gradient(180deg, var(--panel), var(--panel));
     border: 1px solid rgba(245, 197, 66, .25);
     border-radius: 18px;
 
