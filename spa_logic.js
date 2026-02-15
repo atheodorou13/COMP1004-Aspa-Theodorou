@@ -11,6 +11,7 @@ const state = {
     questions: []
 };
 
+/* ---------- Shuffle questions ---------- */
 function shuffleArray(array) {
     const arr = [...array];
     for (let i = arr.length - 1; i > 0; i--) {
@@ -19,6 +20,161 @@ function shuffleArray(array) {
     }
     return arr;
 }
+
+/* ---------- Save scores locally (JSON output) ---------- */
+function saveScore(entry) {
+    const existing = JSON.parse(localStorage.getItem("triviaScores") || "[]");
+    existing.push(entry);
+    localStorage.setItem("triviaScores", JSON.stringify(existing, null, 2));
+}
+
+/* ---------- Load custom quiz JSON ---------- */
+function loadCustomQuiz(file) {
+    const reader = new FileReader();
+
+    reader.onload = function (event) {
+        try {
+            const parsed = JSON.parse(event.target.result);
+
+            if (!parsed.categories || !Array.isArray(parsed.categories)) {
+                throw new Error("Invalid JSON structure. Expected { categories: [...] }");
+            }
+
+            state.data = parsed;
+            state.categoryId = null;
+            state.qIndex = 0;
+            state.answers = [];
+            state.answered = false;
+
+            alert("Custom quiz loaded successfully!");
+            renderCategoryView();
+
+        } catch (err) {
+            alert("Error parsing JSON file.\n\n" + err.message);
+        }
+    };
+
+    reader.readAsText(file);
+}
+
+/* ---------- Download quiz template ---------- */
+function downloadTemplate() {
+
+    const template = {
+        categories: [
+            {
+                id: "category_1",
+                name: "Category 1",
+                questions: [
+                    {
+                        id: 1,
+                        text: "",
+                        options: ["", "", "", ""],
+                        answerIndex: 0
+                    },
+                    {
+                        id: 2,
+                        text: "",
+                        options: ["", "", "", ""],
+                        answerIndex: 0
+                    },
+                    {
+                        id: 3,
+                        text: "",
+                        options: ["", "", "", ""],
+                        answerIndex: 0
+                    }
+                ]
+            },
+            {
+                id: "category_2",
+                name: "Category 2",
+                questions: [
+                    {
+                        id: 1,
+                        text: "",
+                        options: ["", "", "", ""],
+                        answerIndex: 0
+                    },
+                    {
+                        id: 2,
+                        text: "",
+                        options: ["", "", "", ""],
+                        answerIndex: 0
+                    },
+                    {
+                        id: 3,
+                        text: "",
+                        options: ["", "", "", ""],
+                        answerIndex: 0
+                    }
+                ]
+            },
+            {
+                id: "category_3",
+                name: "Category 3",
+                questions: [
+                    {
+                        id: 1,
+                        text: "",
+                        options: ["", "", "", ""],
+                        answerIndex: 0
+                    },
+                    {
+                        id: 2,
+                        text: "",
+                        options: ["", "", "", ""],
+                        answerIndex: 0
+                    },
+                    {
+                        id: 3,
+                        text: "",
+                        options: ["", "", "", ""],
+                        answerIndex: 0
+                    }
+                ]
+            },
+            {
+                id: "category_4",
+                name: "Category 4",
+                questions: [
+                    {
+                        id: 1,
+                        text: "",
+                        options: ["", "", "", ""],
+                        answerIndex: 0
+                    },
+                    {
+                        id: 2,
+                        text: "",
+                        options: ["", "", "", ""],
+                        answerIndex: 0
+                    },
+                    {
+                        id: 3,
+                        text: "",
+                        options: ["", "", "", ""],
+                        answerIndex: 0
+                    }
+                ]
+            }
+        ]
+    };
+
+    const blob = new Blob([JSON.stringify(template, null, 2)], {
+        type: "application/json"
+    });
+
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "quiz-template.json";
+    a.click();
+
+    URL.revokeObjectURL(url);
+}
+
 
 /* ---------- UI translations ---------- */
 const UI_TEXT = {
@@ -31,9 +187,13 @@ const UI_TEXT = {
         finish: "Finish",
         results: "Results",
         score: (s, total) => `Score: ${s} / ${total}`,
-        exportJson: "Export Results (JSON)",
         playAgain: "Play Again",
-        selectAnswerFirst: "Select an answer first."
+        selectAnswerFirst: "Select an answer first.",
+        saveScore: "Save Score",
+        exportAll: "Export All Scores",
+        enterName: "Your name...",
+        nameAlert: "Please enter your name!",
+        saved: "Score saved!"
     },
     gr: {
         chooseLanguage: "Επιλογη Γλωσσας",
@@ -44,9 +204,13 @@ const UI_TEXT = {
         finish: "Τελος",
         results: "Αποτελέσματα",
         score: (s, total) => `Σκορ: ${s} / ${total}`,
-        exportJson: "Εξαγωγη Αποτελεσματων (JSON)",
         playAgain: "Παιξε Ξανα",
-        selectAnswerFirst: "Διάλεξε πρώτα μια απάντηση."
+        selectAnswerFirst: "Διάλεξε πρώτα μια απάντηση.",
+        saveScore: "Αποθηκευση Σκορ",
+        exportAll: "Εξαγωγη Ολων",
+        enterName: "Ονομα...",
+        nameAlert: "Συμπληρωσε ονομα!",
+        saved: "Αποθηκευτηκε!"
     }
 };
 
@@ -59,26 +223,73 @@ function t(key, ...args) {
 /* ---------- Theme toggle ---------- */
 themeBtn.addEventListener("click", () => {
     document.body.classList.toggle("light");
-
-    if (document.body.classList.contains("light")) {
-        themeBtn.textContent = "☀️";
-    } else {
-        themeBtn.textContent = "🌙";
-    }
+    themeBtn.textContent = document.body.classList.contains("light") ? "☀️" : "🌙";
 });
 
 
 /* ---------- Language view ---------- */
 function renderLanguageView() {
+    const fileInput = el("input", {
+        type: "file",
+        accept: ".json",
+        style: "display:none"
+    });
+
+    fileInput.addEventListener("change", (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            loadCustomQuiz(file);
+        }
+    });
+
     const view = el("div", { className: "card" }, [
         el("h2", {}, ["Choose Language / Επιλογή Γλώσσας"]),
+
         el("div", { className: "choice-row centered" }, [
-            el("button", { className: "btn-choice", type: "button", onClick: () => startWithLanguage("en") }, ["English"]),
-            el("button", { className: "btn-choice", type: "button", onClick: () => startWithLanguage("gr") }, ["Ελληνικα"])
-        ])
+            el("button", {
+                className: "btn-choice",
+                type: "button",
+                onClick: () => startWithLanguage("en")
+            }, ["English"]),
+
+            el("button", {
+                className: "btn-choice",
+                type: "button",
+                onClick: () => startWithLanguage("gr")
+            }, ["Ελληνικα"])
+        ]),
+
+        el("hr"),
+
+        el("div", { className: "choice-row centered" }, [
+
+            el("button", {
+                className: "btn-choice",
+                type: "button",
+                onClick: downloadTemplate
+            }, ["Download Quiz Template"]),
+
+            el("button", {
+                className: "btn-choice",
+                type: "button",
+                onClick: () => fileInput.click()
+            }, ["Upload Custom Quiz (JSON)"])
+        ]),
+
+        el("p", {
+            className: "muted",
+            style: "text-align:center; max-width:600px; margin:10px auto;"
+        }, [
+            "Download the template, edit it using any text editor, save as .json and upload it here."
+        ]),
+
+        fileInput
     ]);
+
     setView(app, view);
 }
+
+
 
 /* ---------- Load language ---------- */
 async function startWithLanguage(lang) {
@@ -107,8 +318,10 @@ function renderCategoryView() {
                         state.qIndex = 0;
                         state.answers = [];
                         state.answered = false;
+
                         const selectedCategory = state.data.categories.find(cat => cat.id === c.id);
                         state.questions = shuffleArray(selectedCategory.questions);
+
                         renderQuestionView();
                     }
                 }, [c.name])
@@ -130,7 +343,6 @@ function getActiveCategory() {
 function renderQuestionView() {
     const questions = state.questions;
     const q = questions[state.qIndex];
-
 
     const labels = state.language === "gr"
         ? ["Α", "Β", "Γ", "Δ"]
@@ -209,37 +421,59 @@ function renderResultsView() {
         if (state.answers[i] === q.answerIndex) score++;
     });
 
-    const resultObj = {
-        project: "Trivia Fiesta",
-        timestamp: new Date().toISOString(),
-        language: state.language,
-        categoryId: cat.id,
-        totalQuestions: questions.length,
-        score,
-        answers: questions.map((q, i) => ({
-            questionId: q.id,
-            selectedIndex: state.answers[i] ?? null,
-            correctIndex: q.answerIndex
-        }))
-    };
+    const nameInput = el("input", {
+        type: "text",
+        placeholder: t("enterName"),
+        className: "name-input"
+    });
 
     const view = el("div", { className: "card" }, [
         el("h2", {}, [t("results")]),
         el("p", { className: "muted" }, [t("score", score, questions.length)]),
+
+        el("div", { className: "choice-row centered" }, [nameInput]),
+
         el("div", { className: "choice-row centered" }, [
+
             el("button", {
                 className: "btn-choice",
                 type: "button",
                 onClick: () => {
-                    const blob = new Blob([JSON.stringify(resultObj, null, 2)], { type: "application/json" });
+                    const playerName = nameInput.value.trim();
+                    if (!playerName) return alert(t("nameAlert"));
+
+                    const scoreEntry = {
+                        name: playerName,
+                        score,
+                        totalQuestions: questions.length,
+                        category: cat.id,
+                        language: state.language,
+                        timestamp: new Date().toISOString()
+                    };
+
+                    saveScore(scoreEntry);
+                    alert(t("saved"));
+                }
+            }, [t("saveScore")]),
+
+            el("button", {
+                className: "btn-choice",
+                type: "button",
+                onClick: () => {
+                    const allScores = localStorage.getItem("triviaScores") || "[]";
+
+                    const blob = new Blob([allScores], { type: "application/json" });
                     const url = URL.createObjectURL(blob);
+
                     const a = document.createElement("a");
                     a.href = url;
-                    a.download = "trivia-fiesta-results.json";
+                    a.download = "trivia-fiesta-all-scores.json";
                     a.click();
+
                     URL.revokeObjectURL(url);
                 }
-            }, [t("exportJson")]),
+            }, [t("exportAll")]),
+
             el("button", {
                 className: "btn-secondary",
                 type: "button",
