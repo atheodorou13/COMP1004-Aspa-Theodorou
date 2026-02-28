@@ -1,8 +1,7 @@
-// data.js
 // Loads the question sets from local JSON files (JSON input requirement)
 
 async function loadQuestions(lang) {
-    // Update these filenames if yours are different
+
     const file = (lang === "gr") ? "Data/questions_gr.json" : "Data/questions_en.json";
 
     try {
@@ -13,7 +12,7 @@ async function loadQuestions(lang) {
 
         const data = await res.json();
 
-        // Basic structure check (helps debugging)
+
         if (!data || !Array.isArray(data.categories)) {
             throw new Error(`Invalid structure in ${file}. Expected { "categories": [...] }`);
         }

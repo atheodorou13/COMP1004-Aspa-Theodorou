@@ -5,6 +5,7 @@ const state = {
     language: "en",
     data: null,
     categoryId: null,
+    difficulty: null,
     qIndex: 0,
     answers: [],
     answered: false,
@@ -181,6 +182,12 @@ const UI_TEXT = {
     en: {
         chooseLanguage: "Choose Language",
         chooseCategory: "Select Category",
+        chooseDifficulty: "Select Difficulty",
+        easy: "Easy",
+        medium: "Medium",
+        hard: "Hard",
+        allLevels: "All Levels",
+        noQuestions: "No questions available for this difficulty.",
         questionOf: (i, total) => `Question ${i} of ${total}`,
         next: "Next",
         back: "Back",
@@ -198,6 +205,12 @@ const UI_TEXT = {
     gr: {
         chooseLanguage: "Επιλογη Γλωσσας",
         chooseCategory: "Επιλογή Κατηγορίας",
+        chooseDifficulty: "Επιλογή Δυσκολίας",
+        easy: "Εύκολο",
+        medium: "Μεσαίο",
+        hard: "Δύσκολο",
+        allLevels: "Όλα τα Επίπεδα",
+        noQuestions: "Δεν υπάρχουν ερωτήσεις για αυτό το επίπεδο.",
         questionOf: (i, total) => `Ερωτηση ${i} απο ${total}`,
         next: "Επομενο",
         back: "Πισω",
@@ -315,14 +328,8 @@ function renderCategoryView() {
                     type: "button",
                     onClick: () => {
                         state.categoryId = c.id;
-                        state.qIndex = 0;
-                        state.answers = [];
-                        state.answered = false;
-
-                        const selectedCategory = state.data.categories.find(cat => cat.id === c.id);
-                        state.questions = shuffleArray(selectedCategory.questions);
-
-                        renderQuestionView();
+                        state.difficulty = null;
+                        renderDifficultyView();
                     }
                 }, [c.name])
             )
@@ -334,6 +341,99 @@ function renderCategoryView() {
 
     setView(app, view);
 }
+
+
+function renderDifficultyView() {
+
+    const view = el("div", { className: "card" }, [
+
+        el("h2", {}, [t("chooseDifficulty")]),
+
+        el("div", { className: "choice-row centered" }, [
+
+            el("button", {
+                className: "btn-choice",
+                type: "button",
+                onClick: () => startQuizWithDifficulty("easy")
+            }, [t("easy")]),
+
+            el("button", {
+                className: "btn-choice",
+                type: "button",
+                onClick: () => startQuizWithDifficulty("medium")
+            }, [t("medium")]),
+
+            el("button", {
+                className: "btn-choice",
+                type: "button",
+                onClick: () => startQuizWithDifficulty("hard")
+            }, [t("hard")]),
+
+            el("button", {
+                className: "btn-choice",
+                type: "button",
+                onClick: () => startQuizWithDifficulty("all")
+            }, [t("allLevels")])
+
+        ]),
+
+        el("div", { className: "choice-row centered" }, [
+            el("button", {
+                className: "btn-secondary",
+                type: "button",
+                onClick: renderCategoryView
+            }, [t("back")])
+        ])
+    ]);
+
+    setView(app, view);
+}
+
+
+function startQuizWithDifficulty(level) {
+
+    state.difficulty = level;
+    state.qIndex = 0;
+    state.answers = [];
+    state.answered = false;
+
+    const selectedCategory = state.data.categories.find(
+        cat => cat.id === state.categoryId
+    );
+
+    let finalQuestions = [];
+
+    if (level === "all") {
+
+        const easy = selectedCategory.questions.filter(q => q.difficulty === "easy");
+        const medium = selectedCategory.questions.filter(q => q.difficulty === "medium");
+        const hard = selectedCategory.questions.filter(q => q.difficulty === "hard");
+
+        finalQuestions = [
+            ...shuffleArray(easy).slice(0, 3),
+            ...shuffleArray(medium).slice(0, 4),
+            ...shuffleArray(hard).slice(0, 3)
+        ];
+
+    } else {
+
+        const filtered = selectedCategory.questions.filter(
+            q => q.difficulty === level
+        );
+
+        if (filtered.length === 0) {
+            alert(t("noQuestions"));
+            return;
+        }
+
+        finalQuestions = shuffleArray(filtered).slice(0, 10);
+    }
+
+    state.questions = shuffleArray(finalQuestions);
+
+    renderQuestionView();
+}
+
 
 function getActiveCategory() {
     return state.data.categories.find(c => c.id === state.categoryId);
@@ -386,7 +486,7 @@ function renderQuestionView() {
                 type: "button",
                 onClick: () => {
                     state.answered = false;
-                    if (state.qIndex === 0) return renderCategoryView();
+                    if (state.qIndex === 0) return renderDifficultyView();
                     state.qIndex--;
                     renderQuestionView();
                 }

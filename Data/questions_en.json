@@ -13,7 +13,8 @@
                         "Vancouver",
                         "Montreal"
                     ],
-                    "answerIndex": 0
+                    "answerIndex": 0,
+                    "difficulty": "easy"
                 },
                 {
                     "id": 2,
@@ -24,7 +25,8 @@
                         "7",
                         "8"
                     ],
-                    "answerIndex": 2
+                    "answerIndex": 2,
+                    "difficulty": "easy"
                 },
                 {
                     "id": 3,
@@ -35,7 +37,8 @@
                         "Jupiter",
                         "Saturn"
                     ],
-                    "answerIndex": 1
+                    "answerIndex": 1,
+                    "difficulty": "easy"
                 },
                 {
                     "id": 4,
@@ -46,7 +49,8 @@
                         "Pacific Ocean",
                         "Arctic Ocean"
                     ],
-                    "answerIndex": 2
+                    "answerIndex": 2,
+                    "difficulty": "easy"
                 },
                 {
                     "id": 5,
@@ -57,7 +61,8 @@
                         "Osmium",
                         "Iron"
                     ],
-                    "answerIndex": 1
+                    "answerIndex": 1,
+                    "difficulty": "easy"
                 },
                 {
                     "id": 6,
@@ -68,7 +73,8 @@
                         "366",
                         "367"
                     ],
-                    "answerIndex": 2
+                    "answerIndex": 2,
+                    "difficulty": "easy"
                 },
                 {
                     "id": 7,
@@ -79,7 +85,8 @@
                         "Yen",
                         "Dollar"
                     ],
-                    "answerIndex": 2
+                    "answerIndex": 2,
+                    "difficulty": "easy"
                 },
                 {
                     "id": 8,
@@ -90,7 +97,8 @@
                         "Lion",
                         "Leopard"
                     ],
-                    "answerIndex": 2
+                    "answerIndex": 2,
+                    "difficulty": "medium"
                 },
                 {
                     "id": 9,
@@ -101,7 +109,8 @@
                         "Brazil",
                         "South Africa"
                     ],
-                    "answerIndex": 1
+                    "answerIndex": 1,
+                    "difficulty": "medium"
                 },
                 {
                     "id": 10,
@@ -112,7 +121,128 @@
                         "100°C",
                         "110°C"
                     ],
-                    "answerIndex": 2
+                    "answerIndex": 2,
+                    "difficulty": "medium"
+                },
+                {
+                    "id": 11,
+                    "text": "Which country has the largest population in the world?",
+                    "options": [
+                        "India",
+                        "USA",
+                        "China",
+                        "Indonesia"
+                    ],
+                    "answerIndex": 0,
+                    "difficulty": "medium"
+                },
+                {
+                    "id": 12,
+                    "text": "Who wrote the play 'Romeo and Juliet'?",
+                    "options": [
+                        "Charles Dickens",
+                        "William Shakespeare",
+                        "Jane Austen",
+                        "Mark Twain"
+                    ],
+                    "answerIndex": 1,
+                    "difficulty": "medium"
+                },
+                {
+                    "id": 13,
+                    "text": "Which gas do plants absorb during photosynthesis?",
+                    "options": [
+                        "Oxygen",
+                        "Carbon Dioxide",
+                        "Nitrogen",
+                        "Hydrogen"
+                    ],
+                    "answerIndex": 1,
+                    "difficulty": "medium"
+                },
+                {
+                    "id": 14,
+                    "text": "What is the square root of 144?",
+                    "options": [
+                        "10",
+                        "11",
+                        "12",
+                        "14"
+                    ],
+                    "answerIndex": 2,
+                    "difficulty": "medium"
+                },
+                {
+                    "id": 15,
+                    "text": "Which desert is the largest in the world by area?",
+                    "options": [
+                        "Sahara",
+                        "Gobi",
+                        "Antarctic Desert",
+                        "Arabian"
+                    ],
+                    "answerIndex": 2,
+                    "difficulty": "hard"
+                },
+                {
+                    "id": 16,
+                    "text": "Which element has the atomic number 79?",
+                    "options": [
+                        "Silver",
+                        "Platinum",
+                        "Gold",
+                        "Mercury"
+                    ],
+                    "answerIndex": 2,
+                    "difficulty": "hard"
+                },
+                {
+                    "id": 17,
+                    "text": "What is the capital of Mongolia?",
+                    "options": [
+                        "Astana",
+                        "Ulaanbaatar",
+                        "Tashkent",
+                        "Bishkek"
+                    ],
+                    "answerIndex": 1,
+                    "difficulty": "hard"
+                },
+                {
+                    "id": 18,
+                    "text": "Which country has the most natural lakes?",
+                    "options": [
+                        "USA",
+                        "Canada",
+                        "Russia",
+                        "Finland"
+                    ],
+                    "answerIndex": 1,
+                    "difficulty": "hard"
+                },
+                {
+                    "id": 19,
+                    "text": "What is the smallest prime number greater than 100?",
+                    "options": [
+                        "101",
+                        "103",
+                        "107",
+                        "109"
+                    ],
+                    "answerIndex": 0,
+                    "difficulty": "hard"
+                },
+                {
+                    "id": 20,
+                    "text": "Which scientist proposed the theory of general relativity?",
+                    "options": [
+                        "Newton",
+                        "Einstein",
+                        "Bohr",
+                        "Tesla"
+                    ],
+                    "answerIndex": 1,
+                    "difficulty": "hard"
                 }
             ]
         },
@@ -129,7 +259,8 @@
                         "Abraham Lincoln",
                         "John Adams"
                     ],
-                    "answerIndex": 0
+                    "answerIndex": 0,
+                    "difficulty": "easy"
                 },
                 {
                     "id": 2,
@@ -140,7 +271,8 @@
                         "1945",
                         "1946"
                     ],
-                    "answerIndex": 2
+                    "answerIndex": 2,
+                    "difficulty": "easy"
                 },
                 {
                     "id": 3,
@@ -151,7 +283,8 @@
                         "Egyptians",
                         "Aztecs"
                     ],
-                    "answerIndex": 2
+                    "answerIndex": 2,
+                    "difficulty": "easy"
                 },
                 {
                     "id": 4,
@@ -162,7 +295,8 @@
                         "Angela Merkel",
                         "Indira Gandhi"
                     ],
-                    "answerIndex": 1
+                    "answerIndex": 1,
+                    "difficulty": "easy"
                 },
                 {
                     "id": 5,
@@ -173,7 +307,8 @@
                         "1989",
                         "1990"
                     ],
-                    "answerIndex": 2
+                    "answerIndex": 2,
+                    "difficulty": "easy"
                 },
                 {
                     "id": 6,
@@ -184,21 +319,11 @@
                         "Vasco da Gama",
                         "Ferdinand Magellan"
                     ],
-                    "answerIndex": 0
+                    "answerIndex": 0,
+                    "difficulty": "easy"
                 },
                 {
                     "id": 7,
-                    "text": "Which war was fought between the North and South regions in the United States?",
-                    "options": [
-                        "World War I",
-                        "Civil War",
-                        "Revolutionary War",
-                        "Cold War"
-                    ],
-                    "answerIndex": 1
-                },
-                {
-                    "id": 8,
                     "text": "Who was the first man to walk on the Moon?",
                     "options": [
                         "Buzz Aldrin",
@@ -206,7 +331,20 @@
                         "Neil Armstrong",
                         "Michael Collins"
                     ],
-                    "answerIndex": 2
+                    "answerIndex": 2,
+                    "difficulty": "easy"
+                },
+                {
+                    "id": 8,
+                    "text": "Which war was fought between the North and South regions in the United States?",
+                    "options": [
+                        "World War I",
+                        "Civil War",
+                        "Revolutionary War",
+                        "Cold War"
+                    ],
+                    "answerIndex": 1,
+                    "difficulty": "medium"
                 },
                 {
                     "id": 9,
@@ -217,7 +355,8 @@
                         "Ottoman Empire",
                         "British Empire"
                     ],
-                    "answerIndex": 1
+                    "answerIndex": 1,
+                    "difficulty": "medium"
                 },
                 {
                     "id": 10,
@@ -228,7 +367,128 @@
                         "1918",
                         "1923"
                     ],
-                    "answerIndex": 1
+                    "answerIndex": 1,
+                    "difficulty": "medium"
+                },
+                {
+                    "id": 11,
+                    "text": "Which revolution began in 1789?",
+                    "options": [
+                        "American",
+                        "French",
+                        "Russian",
+                        "Industrial"
+                    ],
+                    "answerIndex": 1,
+                    "difficulty": "medium"
+                },
+                {
+                    "id": 12,
+                    "text": "Who was the leader of Nazi Germany?",
+                    "options": [
+                        "Stalin",
+                        "Hitler",
+                        "Mussolini",
+                        "Franco"
+                    ],
+                    "answerIndex": 1,
+                    "difficulty": "medium"
+                },
+                {
+                    "id": 13,
+                    "text": "Which empire built the Colosseum?",
+                    "options": [
+                        "Greek",
+                        "Roman",
+                        "Persian",
+                        "Byzantine"
+                    ],
+                    "answerIndex": 1,
+                    "difficulty": "medium"
+                },
+                {
+                    "id": 14,
+                    "text": "In which year did the Cold War officially end?",
+                    "options": [
+                        "1989",
+                        "1991",
+                        "1993",
+                        "1995"
+                    ],
+                    "answerIndex": 1,
+                    "difficulty": "medium"
+                },
+                {
+                    "id": 15,
+                    "text": "Which treaty ended World War I?",
+                    "options": [
+                        "Treaty of Versailles",
+                        "Treaty of Paris",
+                        "Treaty of Rome",
+                        "Treaty of Berlin"
+                    ],
+                    "answerIndex": 0,
+                    "difficulty": "hard"
+                },
+                {
+                    "id": 16,
+                    "text": "Who was the British Prime Minister during most of World War II?",
+                    "options": [
+                        "Churchill",
+                        "Chamberlain",
+                        "Attlee",
+                        "Blair"
+                    ],
+                    "answerIndex": 0,
+                    "difficulty": "hard"
+                },
+                {
+                    "id": 17,
+                    "text": "Which dynasty built the Great Wall of China in its current form?",
+                    "options": [
+                        "Ming",
+                        "Qing",
+                        "Han",
+                        "Tang"
+                    ],
+                    "answerIndex": 0,
+                    "difficulty": "hard"
+                },
+                {
+                    "id": 18,
+                    "text": "Which battle marked the defeat of Napoleon in 1815?",
+                    "options": [
+                        "Trafalgar",
+                        "Waterloo",
+                        "Austerlitz",
+                        "Leipzig"
+                    ],
+                    "answerIndex": 1,
+                    "difficulty": "hard"
+                },
+                {
+                    "id": 19,
+                    "text": "Who was the first female Prime Minister of the UK?",
+                    "options": [
+                        "Theresa May",
+                        "Margaret Thatcher",
+                        "Angela Merkel",
+                        "Indira Gandhi"
+                    ],
+                    "answerIndex": 1,
+                    "difficulty": "hard"
+                },
+                {
+                    "id": 20,
+                    "text": "Which empire was centred in Constantinople?",
+                    "options": [
+                        "Ottoman",
+                        "Roman",
+                        "Byzantine",
+                        "Persian"
+                    ],
+                    "answerIndex": 2,
+                    "difficulty": "hard"
                 }
             ]
         },
@@ -245,7 +505,8 @@
                         "11",
                         "12"
                     ],
-                    "answerIndex": 2
+                    "answerIndex": 2,
+                    "difficulty": "easy"
                 },
                 {
                     "id": 2,
@@ -256,7 +517,8 @@
                         "France",
                         "Argentina"
                     ],
-                    "answerIndex": 2
+                    "answerIndex": 2,
+                    "difficulty": "easy"
                 },
                 {
                     "id": 3,
@@ -267,7 +529,8 @@
                         "Love",
                         "Blank"
                     ],
-                    "answerIndex": 2
+                    "answerIndex": 2,
+                    "difficulty": "easy"
                 },
                 {
                     "id": 4,
@@ -278,7 +541,8 @@
                         "Squash",
                         "Table Tennis"
                     ],
-                    "answerIndex": 1
+                    "answerIndex": 1,
+                    "difficulty": "easy"
                 },
                 {
                     "id": 5,
@@ -289,7 +553,8 @@
                         "6",
                         "7"
                     ],
-                    "answerIndex": 1
+                    "answerIndex": 1,
+                    "difficulty": "easy"
                 },
                 {
                     "id": 6,
@@ -300,32 +565,11 @@
                         "Handball",
                         "Rugby"
                     ],
-                    "answerIndex": 1
+                    "answerIndex": 1,
+                    "difficulty": "easy"
                 },
                 {
                     "id": 7,
-                    "text": "Which country is famous for cricket?",
-                    "options": [
-                        "USA",
-                        "India",
-                        "Japan",
-                        "Spain"
-                    ],
-                    "answerIndex": 1
-                },
-                {
-                    "id": 8,
-                    "text": "How long is an Olympic swimming pool?",
-                    "options": [
-                        "25m",
-                        "50m",
-                        "75m",
-                        "100m"
-                    ],
-                    "answerIndex": 1
-                },
-                {
-                    "id": 9,
                     "text": "Which sport is associated with Wimbledon?",
                     "options": [
                         "Golf",
@@ -333,7 +577,32 @@
                         "Cricket",
                         "Rugby"
                     ],
-                    "answerIndex": 1
+                    "answerIndex": 1,
+                    "difficulty": "easy"
+                },
+                {
+                    "id": 8,
+                    "text": "Which country is famous for cricket?",
+                    "options": [
+                        "USA",
+                        "India",
+                        "Japan",
+                        "Spain"
+                    ],
+                    "answerIndex": 1,
+                    "difficulty": "medium"
+                },
+                {
+                    "id": 9,
+                    "text": "How long is an Olympic swimming pool?",
+                    "options": [
+                        "25m",
+                        "50m",
+                        "75m",
+                        "100m"
+                    ],
+                    "answerIndex": 1,
+                    "difficulty": "medium"
                 },
                 {
                     "id": 10,
@@ -344,7 +613,128 @@
                         "Cristiano Ronaldo",
                         "Lionel Messi"
                     ],
-                    "answerIndex": 0
+                    "answerIndex": 0,
+                    "difficulty": "medium"
+                },
+                {
+                    "id": 11,
+                    "text": "In which sport is the Ryder Cup contested?",
+                    "options": [
+                        "Golf",
+                        "Tennis",
+                        "Cricket",
+                        "Hockey"
+                    ],
+                    "answerIndex": 0,
+                    "difficulty": "medium"
+                },
+                {
+                    "id": 12,
+                    "text": "Which country hosts the Tour de France?",
+                    "options": [
+                        "Italy",
+                        "Spain",
+                        "France",
+                        "Belgium"
+                    ],
+                    "answerIndex": 2,
+                    "difficulty": "medium"
+                },
+                {
+                    "id": 13,
+                    "text": "In which sport would you perform a hat-trick?",
+                    "options": [
+                        "Football",
+                        "Basketball",
+                        "Baseball",
+                        "Rugby"
+                    ],
+                    "answerIndex": 0,
+                    "difficulty": "medium"
+                },
+                {
+                    "id": 14,
+                    "text": "How many sets are played in a standard men's Grand Slam tennis final?",
+                    "options": [
+                        "3",
+                        "4",
+                        "5",
+                        "6"
+                    ],
+                    "answerIndex": 2,
+                    "difficulty": "medium"
+                },
+                {
+                    "id": 15,
+                    "text": "Which country won the first ever FIFA World Cup in 1930?",
+                    "options": [
+                        "Brazil",
+                        "Italy",
+                        "Uruguay",
+                        "Germany"
+                    ],
+                    "answerIndex": 2,
+                    "difficulty": "hard"
+                },
+                {
+                    "id": 16,
+                    "text": "In Formula 1, what does DRS stand for?",
+                    "options": [
+                        "Dynamic Racing System",
+                        "Drag Reduction System",
+                        "Drive Response Setup",
+                        "Dynamic Rotation Speed"
+                    ],
+                    "answerIndex": 1,
+                    "difficulty": "hard"
+                },
+                {
+                    "id": 17,
+                    "text": "Which boxer was known as 'The Greatest'?",
+                    "options": [
+                        "Tyson",
+                        "Ali",
+                        "Mayweather",
+                        "Frazier"
+                    ],
+                    "answerIndex": 1,
+                    "difficulty": "hard"
+                },
+                {
+                    "id": 18,
+                    "text": "How many players are on a baseball team on the field?",
+                    "options": [
+                        "7",
+                        "8",
+                        "9",
+                        "10"
+                    ],
+                    "answerIndex": 2,
+                    "difficulty": "hard"
+                },
+                {
+                    "id": 19,
+                    "text": "Which country has won the most Olympic medals overall?",
+                    "options": [
+                        "China",
+                        "USA",
+                        "Russia",
+                        "UK"
+                    ],
+                    "answerIndex": 1,
+                    "difficulty": "hard"
+                },
+                {
+                    "id": 20,
+                    "text": "Which tennis player has won the most Grand Slam titles (men's singles)?",
+                    "options": [
+                        "Federer",
+                        "Nadal",
+                        "Djokovic",
+                        "Sampras"
+                    ],
+                    "answerIndex": 2,
+                    "difficulty": "hard"
                 }
             ]
         },
@@ -361,7 +751,8 @@
                         "Christopher Nolan",
                         "Martin Scorsese"
                     ],
-                    "answerIndex": 1
+                    "answerIndex": 1,
+                    "difficulty": "easy"
                 },
                 {
                     "id": 2,
@@ -372,7 +763,8 @@
                         "The Witcher",
                         "Vikings"
                     ],
-                    "answerIndex": 1
+                    "answerIndex": 1,
+                    "difficulty": "easy"
                 },
                 {
                     "id": 3,
@@ -383,7 +775,8 @@
                         "Robert Downey Jr.",
                         "Mark Ruffalo"
                     ],
-                    "answerIndex": 2
+                    "answerIndex": 2,
+                    "difficulty": "easy"
                 },
                 {
                     "id": 4,
@@ -394,7 +787,8 @@
                         "Hogwarts",
                         "Ilvermorny"
                     ],
-                    "answerIndex": 2
+                    "answerIndex": 2,
+                    "difficulty": "easy"
                 },
                 {
                     "id": 5,
@@ -405,21 +799,11 @@
                         "Tangled",
                         "Brave"
                     ],
-                    "answerIndex": 1
+                    "answerIndex": 1,
+                    "difficulty": "easy"
                 },
                 {
                     "id": 6,
-                    "text": "Who is the main character in the series 'Friends'?",
-                    "options": [
-                        "Ross",
-                        "Rachel",
-                        "Monica",
-                        "There is no single main character"
-                    ],
-                    "answerIndex": 3
-                },
-                {
-                    "id": 7,
                     "text": "Which movie features the quote 'I'll be back'?",
                     "options": [
                         "Rambo",
@@ -427,10 +811,11 @@
                         "Rocky",
                         "Die Hard"
                     ],
-                    "answerIndex": 1
+                    "answerIndex": 1,
+                    "difficulty": "easy"
                 },
                 {
-                    "id": 8,
+                    "id": 7,
                     "text": "Which streaming platform produced 'Stranger Things'?",
                     "options": [
                         "Amazon Prime",
@@ -438,10 +823,11 @@
                         "Disney+",
                         "Hulu"
                     ],
-                    "answerIndex": 1
+                    "answerIndex": 1,
+                    "difficulty": "easy"
                 },
                 {
-                    "id": 9,
+                    "id": 8,
                     "text": "Who played Jack Sparrow in Pirates of the Caribbean?",
                     "options": [
                         "Orlando Bloom",
@@ -449,10 +835,11 @@
                         "Leonardo DiCaprio",
                         "Brad Pitt"
                     ],
-                    "answerIndex": 1
+                    "answerIndex": 1,
+                    "difficulty": "medium"
                 },
                 {
-                    "id": 10,
+                    "id": 9,
                     "text": "Which movie won Best Picture at the Oscars in 2020?",
                     "options": [
                         "1917",
@@ -460,7 +847,140 @@
                         "Parasite",
                         "Ford v Ferrari"
                     ],
-                    "answerIndex": 2
+                    "answerIndex": 2,
+                    "difficulty": "medium"
+                },
+                {
+                    "id": 10,
+                    "text": "Which actor played the Joker in 'The Dark Knight'?",
+                    "options": [
+                        "Joaquin Phoenix",
+                        "Heath Ledger",
+                        "Jared Leto",
+                        "Jack Nicholson"
+                    ],
+                    "answerIndex": 1,
+                    "difficulty": "medium"
+                },
+                {
+                    "id": 11,
+                    "text": "Which film franchise features the character Dominic Toretto?",
+                    "options": [
+                        "Mission Impossible",
+                        "Fast & Furious",
+                        "James Bond",
+                        "Transformers"
+                    ],
+                    "answerIndex": 1,
+                    "difficulty": "medium"
+                },
+                {
+                    "id": 12,
+                    "text": "Which series is set in Hawkins, Indiana?",
+                    "options": [
+                        "Lost",
+                        "Stranger Things",
+                        "Dark",
+                        "The X-Files"
+                    ],
+                    "answerIndex": 1,
+                    "difficulty": "medium"
+                },
+                {
+                    "id": 13,
+                    "text": "Who created the TV show 'Breaking Bad'?",
+                    "options": [
+                        "Vince Gilligan",
+                        "David Chase",
+                        "Ryan Murphy",
+                        "Shonda Rhimes"
+                    ],
+                    "answerIndex": 0,
+                    "difficulty": "medium"
+                },
+                {
+                    "id": 14,
+                    "text": "Which movie features the character Neo?",
+                    "options": [
+                        "Inception",
+                        "The Matrix",
+                        "Avatar",
+                        "Blade Runner"
+                    ],
+                    "answerIndex": 1,
+                    "difficulty": "medium"
+                },
+                {
+                    "id": 15,
+                    "text": "Which director is known for the movie 'Pulp Fiction'?",
+                    "options": [
+                        "Tarantino",
+                        "Scorsese",
+                        "Kubrick",
+                        "Nolan"
+                    ],
+                    "answerIndex": 0,
+                    "difficulty": "hard"
+                },
+                {
+                    "id": 16,
+                    "text": "Which movie won Best Picture at the Oscars in 1994?",
+                    "options": [
+                        "Pulp Fiction",
+                        "Forrest Gump",
+                        "The Shawshank Redemption",
+                        "Four Weddings and a Funeral"
+                    ],
+                    "answerIndex": 1,
+                    "difficulty": "hard"
+                },
+                {
+                    "id": 17,
+                    "text": "Which actor portrayed Vito Corleone in 'The Godfather'?",
+                    "options": [
+                        "Al Pacino",
+                        "Robert De Niro",
+                        "Marlon Brando",
+                        "James Caan"
+                    ],
+                    "answerIndex": 2,
+                    "difficulty": "hard"
+                },
+                {
+                    "id": 18,
+                    "text": "Which animated studio produced 'Spirited Away'?",
+                    "options": [
+                        "Pixar",
+                        "DreamWorks",
+                        "Studio Ghibli",
+                        "Disney"
+                    ],
+                    "answerIndex": 2,
+                    "difficulty": "hard"
+                },
+                {
+                    "id": 19,
+                    "text": "Which series was created by David Benioff and D.B. Weiss?",
+                    "options": [
+                        "The Witcher",
+                        "Game of Thrones",
+                        "Westworld",
+                        "House of Cards"
+                    ],
+                    "answerIndex": 1,
+                    "difficulty": "hard"
+                },
+                {
+                    "id": 20,
+                    "text": "Which actor played the lead role in the film 'Gladiator'?",
+                    "options": [
+                        "Brad Pitt",
+                        "Russell Crowe",
+                        "Mel Gibson",
+                        "Tom Hardy"
+                    ],
+                    "answerIndex": 1,
+                    "difficulty": "hard"
                 }
             ]
         }
