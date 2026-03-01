@@ -9,8 +9,15 @@ const state = {
     qIndex: 0,
     answers: [],
     answered: false,
-    questions: []
+    questions: [],
+    timer: null,
+    timeLeft: 15,
+    timeout: false
 };
+
+/* ---------- Sound Effects ---------- */
+const correctSound = new Audio("Sounds/Correct_Answer.mp3");
+const wrongSound = new Audio("Sounds/Wrong_Answer.mp3");
 
 /* ---------- Shuffle questions ---------- */
 function shuffleArray(array) {
@@ -22,12 +29,126 @@ function shuffleArray(array) {
     return arr;
 }
 
+
+function startTimer() {
+    state.timeLeft = 15;
+
+    state.timer = setInterval(() => {
+        state.timeLeft--;
+
+        updateTimerDisplay();
+
+        if (state.timeLeft <= 0) {
+            clearInterval(state.timer);
+            handleTimeOut();
+        }
+    }, 1000);
+}
+
+function stopTimer() {
+    clearInterval(state.timer);
+}
+
+function updateTimerDisplay() {
+    const bar = document.querySelector(".timer-bar");
+    const label = document.querySelector(".timer-label");
+
+    if (!bar) return;
+
+    const percentage = (state.timeLeft / 15) * 100;
+    bar.style.width = percentage + "%";
+
+    // Update label text
+    if (label) {
+        label.textContent =
+            state.language === "gr"
+                ? `Χρόνος: ${state.timeLeft}s`
+                : `Time left: ${state.timeLeft}s`;
+    }
+
+    // Dynamic colour shift
+    if (state.timeLeft > 10) {
+        bar.style.background = "#3ddc84";
+    } else if (state.timeLeft > 5) {
+        bar.style.background = "#ffdd6b";
+    } else {
+        bar.style.background = "#ff5c5c";
+    }
+}
+function handleTimeOut() {
+    if (state.answered) return;
+
+    state.answered = true;
+    state.answers[state.qIndex] = null;
+    state.timeout = true;   // ← mark timeout
+
+    wrongSound.currentTime = 0;
+    wrongSound.play();
+
+    renderQuestionView();
+}
+
+
 /* ---------- Save scores locally (JSON output) ---------- */
 function saveScore(entry) {
     const existing = JSON.parse(localStorage.getItem("triviaScores") || "[]");
+
     existing.push(entry);
-    localStorage.setItem("triviaScores", JSON.stringify(existing, null, 2));
+
+    // Sort by highest score first
+    existing.sort((a, b) => b.score - a.score);
+
+    // Keep only top 5
+    const topFive = existing.slice(0, 5);
+
+    localStorage.setItem("triviaScores", JSON.stringify(topFive, null, 2));
 }
+
+function getLeaderboard() {
+    return JSON.parse(localStorage.getItem("triviaScores") || "[]");
+}
+
+function validateQuizStructure(data) {
+
+    if (!data.categories || !Array.isArray(data.categories)) {
+        throw new Error("Missing or invalid 'categories' array.");
+    }
+
+    data.categories.forEach((category, cIndex) => {
+
+        if (!category.id || !category.name || !Array.isArray(category.questions)) {
+            throw new Error(`Invalid structure in category ${cIndex + 1}.`);
+        }
+
+        category.questions.forEach((q, qIndex) => {
+
+            if (typeof q.id === "undefined") {
+                throw new Error(`Missing question id in category '${category.name}'.`);
+            }
+
+            if (!q.text || !Array.isArray(q.options)) {
+                throw new Error(`Invalid question structure in '${category.name}', question ${qIndex + 1}.`);
+            }
+
+            if (q.options.length !== 4) {
+                throw new Error(`Question ${qIndex + 1} in '${category.name}' must have exactly 4 options.`);
+            }
+
+            if (typeof q.answerIndex !== "number" || q.answerIndex < 0 || q.answerIndex > 3) {
+                throw new Error(`Invalid answerIndex in '${category.name}', question ${qIndex + 1}. Must be 0–3.`);
+            }
+
+            if (!["easy", "medium", "hard"].includes(q.difficulty)) {
+                throw new Error(`Invalid difficulty in '${category.name}', question ${qIndex + 1}. Must be easy, medium or hard.`);
+            }
+
+        });
+    });
+
+    return true;
+}
+
+
 
 /* ---------- Load custom quiz JSON ---------- */
 function loadCustomQuiz(file) {
@@ -37,9 +158,7 @@ function loadCustomQuiz(file) {
         try {
             const parsed = JSON.parse(event.target.result);
 
-            if (!parsed.categories || !Array.isArray(parsed.categories)) {
-                throw new Error("Invalid JSON structure. Expected { categories: [...] }");
-            }
+            validateQuizStructure(parsed);
 
             state.data = parsed;
             state.categoryId = null;
@@ -58,104 +177,66 @@ function loadCustomQuiz(file) {
     reader.readAsText(file);
 }
 
+
 /* ---------- Download quiz template ---------- */
 function downloadTemplate() {
 
     const template = {
+        instructions: {
+            note_1: "Do NOT change the main structure: { categories: [...] }",
+            note_2: "Each category must have: id, name, and questions array.",
+            note_3: "Each question must have: id, text, options (4), answerIndex (0-3), difficulty.",
+            note_4: "answerIndex is the position of the correct answer in the options array.",
+            note_5: "difficulty must be one of: easy, medium, hard.",
+            note_6: "IDs must be unique within each category."
+        },
+
         categories: [
             {
-                id: "category_1",
-                name: "Category 1",
+                id: "science",
+                name: "Science",
                 questions: [
                     {
                         id: 1,
-                        text: "",
-                        options: ["", "", "", ""],
-                        answerIndex: 0
+                        text: "What planet is known as the Red Planet?",
+                        options: [
+                            "Earth",
+                            "Mars",
+                            "Jupiter",
+                            "Saturn"
+                        ],
+                        answerIndex: 1,
+                        difficulty: "easy"
                     },
                     {
                         id: 2,
-                        text: "",
-                        options: ["", "", "", ""],
-                        answerIndex: 0
-                    },
-                    {
-                        id: 3,
-                        text: "",
-                        options: ["", "", "", ""],
-                        answerIndex: 0
+                        text: "What gas do plants absorb during photosynthesis?",
+                        options: [
+                            "Oxygen",
+                            "Carbon Dioxide",
+                            "Nitrogen",
+                            "Hydrogen"
+                        ],
+                        answerIndex: 1,
+                        difficulty: "medium"
                     }
                 ]
             },
             {
-                id: "category_2",
-                name: "Category 2",
+                id: "history",
+                name: "History",
                 questions: [
                     {
                         id: 1,
-                        text: "",
-                        options: ["", "", "", ""],
-                        answerIndex: 0
-                    },
-                    {
-                        id: 2,
-                        text: "",
-                        options: ["", "", "", ""],
-                        answerIndex: 0
-                    },
-                    {
-                        id: 3,
-                        text: "",
-                        options: ["", "", "", ""],
-                        answerIndex: 0
-                    }
-                ]
-            },
-            {
-                id: "category_3",
-                name: "Category 3",
-                questions: [
-                    {
-                        id: 1,
-                        text: "",
-                        options: ["", "", "", ""],
-                        answerIndex: 0
-                    },
-                    {
-                        id: 2,
-                        text: "",
-                        options: ["", "", "", ""],
-                        answerIndex: 0
-                    },
-                    {
-                        id: 3,
-                        text: "",
-                        options: ["", "", "", ""],
-                        answerIndex: 0
-                    }
-                ]
-            },
-            {
-                id: "category_4",
-                name: "Category 4",
-                questions: [
-                    {
-                        id: 1,
-                        text: "",
-                        options: ["", "", "", ""],
-                        answerIndex: 0
-                    },
-                    {
-                        id: 2,
-                        text: "",
-                        options: ["", "", "", ""],
-                        answerIndex: 0
-                    },
-                    {
-                        id: 3,
-                        text: "",
-                        options: ["", "", "", ""],
-                        answerIndex: 0
+                        text: "In what year did World War II end?",
+                        options: [
+                            "1943",
+                            "1944",
+                            "1945",
+                            "1946"
+                        ],
+                        answerIndex: 2,
+                        difficulty: "easy"
                     }
                 ]
             }
@@ -175,7 +256,6 @@ function downloadTemplate() {
 
     URL.revokeObjectURL(url);
 }
-
 
 /* ---------- UI translations ---------- */
 const UI_TEXT = {
@@ -236,7 +316,8 @@ function t(key, ...args) {
 /* ---------- Theme toggle ---------- */
 themeBtn.addEventListener("click", () => {
     document.body.classList.toggle("light");
-    themeBtn.textContent = document.body.classList.contains("light") ? "☀️" : "🌙";
+    themeBtn.textContent =
+        document.body.classList.contains("light") ? "☀" : "☾";
 });
 
 
@@ -303,7 +384,6 @@ function renderLanguageView() {
 }
 
 
-
 /* ---------- Load language ---------- */
 async function startWithLanguage(lang) {
     state.language = lang;
@@ -336,6 +416,7 @@ function renderCategoryView() {
         ),
         el("div", { className: "choice-row centered" }, [
             el("button", { className: "btn-secondary", type: "button", onClick: renderLanguageView }, [t("back")])
+
         ])
     ]);
 
@@ -465,8 +546,18 @@ function renderQuestionView() {
                 type: "button",
                 onClick: () => {
                     if (state.answered) return;
+
                     state.answers[state.qIndex] = idx;
                     state.answered = true;
+
+                    if (idx === q.answerIndex) {
+                        correctSound.currentTime = 0;
+                        correctSound.play();
+                    } else {
+                        wrongSound.currentTime = 0;
+                        wrongSound.play();
+                    }
+
                     renderQuestionView();
                 }
             }, [
@@ -476,8 +567,31 @@ function renderQuestionView() {
         })
     );
 
+
     const view = el("div", { className: "card" }, [
         el("p", { className: "question-meta" }, [t("questionOf", state.qIndex + 1, questions.length)]),
+        el("div", { className: "timer-wrapper" }, [
+            el("div", { className: "timer-label" }, [
+                state.language === "gr"
+                    ? `Χρόνος: ${state.timeLeft}s`
+                    : `Time left: ${state.timeLeft}s`
+            ]),
+            el("div", { className: "timer-bar-container" }, [
+                el("div", {
+                    className: "timer-bar",
+                    style: `width: ${(state.timeLeft / 15) * 100}%`
+                })
+            ])
+        ]),
+
+        state.timeout
+            ? el("div", { className: "timeout-message" }, [
+                state.language === "gr"
+                    ? "Τέλος χρόνου! Δεν πήρες πόντο για αυτή την ερώτηση."
+                    : "Time's up! You scored 0 for this question."
+            ])
+            : null,
+
         el("h3", { className: "question-text" }, [q.text]),
         optionsList,
         el("div", { className: "nav-row" }, [
@@ -485,6 +599,7 @@ function renderQuestionView() {
                 className: "btn-secondary",
                 type: "button",
                 onClick: () => {
+                    stopTimer();
                     state.answered = false;
                     if (state.qIndex === 0) return renderDifficultyView();
                     state.qIndex--;
@@ -495,6 +610,8 @@ function renderQuestionView() {
                 className: "btn-primary",
                 type: "button",
                 onClick: () => {
+                    stopTimer();
+                    state.timeout = false;
                     if (!state.answered) return alert(t("selectAnswerFirst"));
                     state.answered = false;
                     if (state.qIndex < questions.length - 1) {
@@ -507,12 +624,19 @@ function renderQuestionView() {
             }, [state.qIndex < questions.length - 1 ? t("next") : t("finish")])
         ])
     ]);
+    stopTimer();
 
-    setView(app, view);
+    setView(app, view);   // render first
+
+    if (!state.answered) {
+        startTimer();     // start timer AFTER render
+    }
 }
 
 /* ---------- Results view ---------- */
 function renderResultsView() {
+    stopTimer();
+
     const cat = getActiveCategory();
     const questions = state.questions;
 
@@ -524,19 +648,24 @@ function renderResultsView() {
     const nameInput = el("input", {
         type: "text",
         placeholder: t("enterName"),
-        className: "name-input"
+        className: "name-input-modern"
     });
 
-    const view = el("div", { className: "card" }, [
-        el("h2", {}, [t("results")]),
-        el("p", { className: "muted" }, [t("score", score, questions.length)]),
+    const leaderboard = getLeaderboard();
 
-        el("div", { className: "choice-row centered" }, [nameInput]),
+    const view = el("div", { className: "card results-card" }, [
 
-        el("div", { className: "choice-row centered" }, [
+        el("h2", { className: "results-title" }, [t("results")]),
 
+        el("div", { className: "score-display" }, [
+            el("span", { className: "score-number" }, [`${score}`]),
+            el("span", { className: "score-total" }, [` / ${questions.length}`])
+        ]),
+
+        el("div", { className: "save-section" }, [
+            nameInput,
             el("button", {
-                className: "btn-choice",
+                className: "btn-primary",
                 type: "button",
                 onClick: () => {
                     const playerName = nameInput.value.trim();
@@ -552,28 +681,25 @@ function renderResultsView() {
                     };
 
                     saveScore(scoreEntry);
-                    alert(t("saved"));
+                    renderResultsView();
                 }
-            }, [t("saveScore")]),
+            }, [t("saveScore")])
+        ]),
 
-            el("button", {
-                className: "btn-choice",
-                type: "button",
-                onClick: () => {
-                    const allScores = localStorage.getItem("triviaScores") || "[]";
+        el("h3", { className: "leaderboard-title" }, ["🏆 Leaderboard (Top 5)"]),
 
-                    const blob = new Blob([allScores], { type: "application/json" });
-                    const url = URL.createObjectURL(blob);
+        el("div", { className: "leaderboard" },
+            leaderboard.length === 0
+                ? [el("p", { className: "muted" }, ["No scores yet"])]
+                : leaderboard.map((entry, index) =>
+                    el("div", { className: "leaderboard-row" }, [
+                        el("span", {}, [`${index + 1}. ${entry.name}`]),
+                        el("span", {}, [`${entry.score}/${entry.totalQuestions}`])
+                    ])
+                )
+        ),
 
-                    const a = document.createElement("a");
-                    a.href = url;
-                    a.download = "trivia-fiesta-all-scores.json";
-                    a.click();
-
-                    URL.revokeObjectURL(url);
-                }
-            }, [t("exportAll")]),
-
+        el("div", { className: "nav-row" }, [
             el("button", {
                 className: "btn-secondary",
                 type: "button",
