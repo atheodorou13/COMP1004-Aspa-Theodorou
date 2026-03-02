@@ -57,11 +57,11 @@
                     "text": "Which element has the chemical symbol 'O'?",
                     "options": [
                         "Gold",
-                        "Oxygen",
+                        "Iron",
                         "Osmium",
-                        "Iron"
+                        "Oxygen"
                     ],
-                    "answerIndex": 1,
+                    "answerIndex": 3,
                     "difficulty": "easy"
                 },
                 {
@@ -92,12 +92,12 @@
                     "id": 8,
                     "text": "Which animal is known as the King of the Jungle?",
                     "options": [
-                        "Tiger",
-                        "Elephant",
                         "Lion",
+                        "Elephant",
+                        "Tiger",
                         "Leopard"
                     ],
-                    "answerIndex": 2,
+                    "answerIndex": 0,
                     "difficulty": "medium"
                 },
                 {
@@ -153,11 +153,11 @@
                     "text": "Which gas do plants absorb during photosynthesis?",
                     "options": [
                         "Oxygen",
-                        "Carbon Dioxide",
+                        "Hydrogen",
                         "Nitrogen",
-                        "Hydrogen"
+                        "Carbon Dioxide"
                     ],
-                    "answerIndex": 1,
+                    "answerIndex": 3,
                     "difficulty": "medium"
                 },
                 {
@@ -188,12 +188,12 @@
                     "id": 16,
                     "text": "Which element has the atomic number 79?",
                     "options": [
-                        "Silver",
-                        "Platinum",
                         "Gold",
+                        "Platinum",
+                        "Silver",
                         "Mercury"
                     ],
-                    "answerIndex": 2,
+                    "answerIndex": 0,
                     "difficulty": "hard"
                 },
                 {
@@ -237,11 +237,11 @@
                     "text": "Which scientist proposed the theory of general relativity?",
                     "options": [
                         "Newton",
-                        "Einstein",
+                        "Tesla",
                         "Bohr",
-                        "Tesla"
+                        "Einstein"
                     ],
-                    "answerIndex": 1,
+                    "answerIndex": 3,
                     "difficulty": "hard"
                 }
             ]
@@ -280,10 +280,10 @@
                     "options": [
                         "Romans",
                         "Greeks",
-                        "Egyptians",
-                        "Aztecs"
+                        "Aztecs",
+                        "Egyptians"
                     ],
-                    "answerIndex": 2,
+                    "answerIndex": 3,
                     "difficulty": "easy"
                 },
                 {
@@ -351,11 +351,11 @@
                     "text": "Which empire was ruled by Julius Caesar?",
                     "options": [
                         "Greek Empire",
-                        "Roman Empire",
+                        "British Empire",
                         "Ottoman Empire",
-                        "British Empire"
+                        "Roman Empire"
                     ],
-                    "answerIndex": 1,
+                    "answerIndex": 3,
                     "difficulty": "medium"
                 },
                 {
@@ -374,12 +374,12 @@
                     "id": 11,
                     "text": "Which revolution began in 1789?",
                     "options": [
-                        "American",
                         "French",
+                        "American",
                         "Russian",
                         "Industrial"
                     ],
-                    "answerIndex": 1,
+                    "answerIndex": 0,
                     "difficulty": "medium"
                 },
                 {
@@ -399,11 +399,11 @@
                     "text": "Which empire built the Colosseum?",
                     "options": [
                         "Greek",
-                        "Roman",
                         "Persian",
+                        "Roman",
                         "Byzantine"
                     ],
-                    "answerIndex": 1,
+                    "answerIndex": 2,
                     "difficulty": "medium"
                 },
                 {
@@ -446,12 +446,12 @@
                     "id": 17,
                     "text": "Which dynasty built the Great Wall of China in its current form?",
                     "options": [
-                        "Ming",
-                        "Qing",
                         "Han",
+                        "Qing",
+                        "Ming",
                         "Tang"
                     ],
-                    "answerIndex": 0,
+                    "answerIndex": 2,
                     "difficulty": "hard"
                 },
                 {
@@ -500,12 +500,12 @@
                     "id": 1,
                     "text": "How many players are on a football (soccer) team on the field?",
                     "options": [
-                        "9",
-                        "10",
                         "11",
+                        "10",
+                        "9",
                         "12"
                     ],
-                    "answerIndex": 2,
+                    "answerIndex": 0,
                     "difficulty": "easy"
                 },
                 {
@@ -549,11 +549,11 @@
                     "text": "How many rings are on the Olympic flag?",
                     "options": [
                         "4",
-                        "5",
+                        "7",
                         "6",
-                        "7"
+                        "5"
                     ],
-                    "answerIndex": 1,
+                    "answerIndex": 3,
                     "difficulty": "easy"
                 },
                 {
@@ -573,11 +573,11 @@
                     "text": "Which sport is associated with Wimbledon?",
                     "options": [
                         "Golf",
-                        "Tennis",
+                        "Rugby",
                         "Cricket",
-                        "Rugby"
+                        "Tennis"
                     ],
-                    "answerIndex": 1,
+                    "answerIndex": 3,
                     "difficulty": "easy"
                 },
                 {
@@ -630,12 +630,12 @@
                 },
                 {
                     "id": 12,
-                    "text": "Which country hosts the Tour de France?",
+                    "text": "Which country hosted the first modern Olympic Games in 1896?",
                     "options": [
-                        "Italy",
+                        "USA",
                         "Spain",
-                        "France",
-                        "Belgium"
+                        "Greece",
+                        "China"
                     ],
                     "answerIndex": 2,
                     "difficulty": "medium"
@@ -644,12 +644,12 @@
                     "id": 13,
                     "text": "In which sport would you perform a hat-trick?",
                     "options": [
-                        "Football",
+                        "Rugby",
                         "Basketball",
                         "Baseball",
-                        "Rugby"
+                        "Football (Soccer)"
                     ],
-                    "answerIndex": 0,
+                    "answerIndex": 3,
                     "difficulty": "medium"
                 },
                 {
@@ -730,10 +730,10 @@
                     "options": [
                         "Federer",
                         "Nadal",
-                        "Djokovic",
-                        "Sampras"
+                        "Sampras",
+                        "Djokovic"
                     ],
-                    "answerIndex": 2,
+                    "answerIndex": 3,
                     "difficulty": "hard"
                 }
             ]
@@ -780,7 +780,7 @@
                 },
                 {
                     "id": 4,
-                    "text": "What is the name of the wizarding school in Harry Potter?",
+                    "text": "What is the name of the primary wizarding school in Harry Potter?",
                     "options": [
                         "Durmstrang",
                         "Beauxbatons",
@@ -795,11 +795,11 @@
                     "text": "Which animated movie features the character Elsa?",
                     "options": [
                         "Moana",
-                        "Frozen",
+                        "Brave",
                         "Tangled",
-                        "Brave"
+                        "Frozen"
                     ],
-                    "answerIndex": 1,
+                    "answerIndex": 3,
                     "difficulty": "easy"
                 },
                 {
@@ -819,11 +819,11 @@
                     "text": "Which streaming platform produced 'Stranger Things'?",
                     "options": [
                         "Amazon Prime",
-                        "Netflix",
                         "Disney+",
+                        "Netflix",
                         "Hulu"
                     ],
-                    "answerIndex": 1,
+                    "answerIndex": 2,
                     "difficulty": "easy"
                 },
                 {
@@ -855,11 +855,11 @@
                     "text": "Which actor played the Joker in 'The Dark Knight'?",
                     "options": [
                         "Joaquin Phoenix",
-                        "Heath Ledger",
+                        "Christian Bale",
                         "Jared Leto",
-                        "Jack Nicholson"
+                        "Heath Ledger"
                     ],
-                    "answerIndex": 1,
+                    "answerIndex": 3,
                     "difficulty": "medium"
                 },
                 {
@@ -952,10 +952,10 @@
                     "options": [
                         "Pixar",
                         "DreamWorks",
-                        "Studio Ghibli",
-                        "Disney"
+                        "Disney",
+                        "Studio Ghibli"
                     ],
-                    "answerIndex": 2,
+                    "answerIndex": 3,
                     "difficulty": "hard"
                 },
                 {

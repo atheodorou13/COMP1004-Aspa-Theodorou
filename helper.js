@@ -24,7 +24,15 @@ function el(tag, attrs = {}, children = []) {
     }
 
     for (const child of children) {
-        node.appendChild(typeof child === "string" ? document.createTextNode(child) : child);
+
+        if (child === null || child === undefined) continue;
+
+        if (typeof child === "string") {
+            node.appendChild(document.createTextNode(child));
+        } else if (child instanceof Node) {
+            node.appendChild(child);
+        }
+
     }
 
     return node;

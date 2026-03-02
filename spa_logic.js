@@ -12,8 +12,11 @@ const state = {
     questions: [],
     timer: null,
     timeLeft: 15,
-    timeout: false
+    timeout: false,
+    soundOn: true
 };
+
+state.soundOn = JSON.parse(localStorage.getItem("soundOn") || "true");
 
 /* ---------- Sound Effects ---------- */
 const correctSound = new Audio("Sounds/Correct_Answer.mp3");
@@ -82,8 +85,10 @@ function handleTimeOut() {
     state.answers[state.qIndex] = null;
     state.timeout = true;   // ← mark timeout
 
-    wrongSound.currentTime = 0;
-    wrongSound.play();
+    if (state.soundOn) {
+        wrongSound.currentTime = 0;
+        wrongSound.play();
+    }
 
     renderQuestionView();
 }
@@ -311,6 +316,17 @@ function t(key, ...args) {
     const dict = UI_TEXT[state.language] || UI_TEXT.en;
     const value = dict[key];
     return typeof value === "function" ? value(...args) : value;
+}
+
+/* ---------- Sound toggle ---------- */
+if (soundBtn) {
+    soundBtn.textContent = state.soundOn ? "🔊" : "🔇";
+
+    soundBtn.addEventListener("click", () => {
+        state.soundOn = !state.soundOn;
+        localStorage.setItem("soundOn", state.soundOn);
+        soundBtn.textContent = state.soundOn ? "🔊" : "🔇";
+    });
 }
 
 /* ---------- Theme toggle ---------- */
@@ -550,12 +566,14 @@ function renderQuestionView() {
                     state.answers[state.qIndex] = idx;
                     state.answered = true;
 
-                    if (idx === q.answerIndex) {
-                        correctSound.currentTime = 0;
-                        correctSound.play();
-                    } else {
-                        wrongSound.currentTime = 0;
-                        wrongSound.play();
+                    if (state.soundOn) {
+                        if (idx === q.answerIndex) {
+                            correctSound.currentTime = 0;
+                            correctSound.play();
+                        } else {
+                            wrongSound.currentTime = 0;
+                            wrongSound.play();
+                        }
                     }
 
                     renderQuestionView();
