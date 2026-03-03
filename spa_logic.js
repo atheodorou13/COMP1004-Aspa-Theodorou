@@ -34,7 +34,8 @@ function shuffleArray(array) {
 
 
 function startTimer() {
-
+    state.timeLeft = 15;
+    updateTimerDisplay();
     state.timer = setInterval(() => {
         state.timeLeft--;
 
@@ -537,9 +538,7 @@ function getActiveCategory() {
 
 /* ---------- Question view ---------- */
 function renderQuestionView() {
-    if (!state.answered) {
-        state.timeLeft = 15;  // reset BEFORE building the view
-    }
+
     const questions = state.questions;
     const q = questions[state.qIndex];
 
@@ -620,9 +619,17 @@ function renderQuestionView() {
                 type: "button",
                 onClick: () => {
                     stopTimer();
-                    state.answered = false;
-                    if (state.qIndex === 0) return renderDifficultyView();
+
+                    if (state.qIndex === 0) {
+                        renderDifficultyView();
+                        return;
+                    }
+
                     state.qIndex--;
+
+                    // Restore answered state properly
+                    state.answered = state.answers[state.qIndex] !== undefined;
+
                     renderQuestionView();
                 }
             }, [t("back")]),
