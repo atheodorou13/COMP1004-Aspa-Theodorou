@@ -1,24 +1,25 @@
+const QUESTIONS_GR =
 {
     "categories": [
         {
             "id": "general",
-            "name": "General Knowledge",
+            "name": "Γενικές Γνώσεις",
             "questions": [
                 {
                     "id": 1,
-                    "text": "What is the capital city of Canada?",
+                    "text": "Ποια είναι η πρωτεύουσα του Καναδά;",
                     "options": [
-                        "Ottawa",
-                        "Toronto",
-                        "Vancouver",
-                        "Montreal"
+                        "Οτάβα",
+                        "Τορόντο",
+                        "Βανκούβερ",
+                        "Μόντρεαλ"
                     ],
                     "answerIndex": 0,
                     "difficulty": "easy"
                 },
                 {
                     "id": 2,
-                    "text": "How many continents are there on Earth?",
+                    "text": "Πόσες ήπειροι υπάρχουν στη Γη;",
                     "options": [
                         "5",
                         "6",
@@ -30,43 +31,43 @@
                 },
                 {
                     "id": 3,
-                    "text": "Which planet is known as the Red Planet?",
+                    "text": "Ποιος πλανήτης είναι γνωστός ως 'Ο Κόκκινος Πλανήτης';",
                     "options": [
-                        "Venus",
-                        "Mars",
-                        "Jupiter",
-                        "Saturn"
+                        "Αφροδίτη",
+                        "Άρης",
+                        "Δίας",
+                        "Κρόνος"
                     ],
                     "answerIndex": 1,
                     "difficulty": "easy"
                 },
                 {
                     "id": 4,
-                    "text": "What is the largest ocean on Earth?",
+                    "text": "Ποιος είναι ο μεγαλύτερος ωκεανός της Γης;",
                     "options": [
-                        "Atlantic Ocean",
-                        "Indian Ocean",
-                        "Pacific Ocean",
-                        "Arctic Ocean"
+                        "Ατλαντικός",
+                        "Ινδικός",
+                        "Ειρηνικός",
+                        "Αρκτικός"
                     ],
                     "answerIndex": 2,
                     "difficulty": "easy"
                 },
                 {
                     "id": 5,
-                    "text": "Which element has the chemical symbol 'O'?",
+                    "text": "Ποιο στοιχείο έχει το χημικό σύμβολο 'O';",
                     "options": [
-                        "Gold",
-                        "Iron",
-                        "Osmium",
-                        "Oxygen"
+                        "Χρυσός",
+                        "Σίδηρος",
+                        "Όσμιο",
+                        "Οξυγόνο"
                     ],
                     "answerIndex": 3,
                     "difficulty": "easy"
                 },
                 {
                     "id": 6,
-                    "text": "How many days are there in a leap year?",
+                    "text": "Πόσες ημέρες έχει ένα δίσεκτο έτος;",
                     "options": [
                         "364",
                         "365",
@@ -78,43 +79,43 @@
                 },
                 {
                     "id": 7,
-                    "text": "What is the currency of Japan?",
+                    "text": "Ποιο είναι το νόμισμα της Ιαπωνίας;",
                     "options": [
-                        "Won",
-                        "Yuan",
-                        "Yen",
-                        "Dollar"
+                        "Γουόν",
+                        "Γιουάν",
+                        "Γιεν",
+                        "Δολάριο"
                     ],
                     "answerIndex": 2,
                     "difficulty": "easy"
                 },
                 {
                     "id": 8,
-                    "text": "Which animal is known as the King of the Jungle?",
+                    "text": "Ποιο ζώο είναι γνωστό ως 'Ο βασιλιάς της ζούγκλας';",
                     "options": [
-                        "Lion",
-                        "Elephant",
-                        "Tiger",
-                        "Leopard"
+                        "Λιοντάρι",
+                        "Ελέφαντας",
+                        "Τίγρης",
+                        "Λεοπάρδαλη"
                     ],
                     "answerIndex": 0,
                     "difficulty": "medium"
                 },
                 {
                     "id": 9,
-                    "text": "Which country is home to the Great Barrier Reef?",
+                    "text": "Ποια χώρα φιλοξενεί τον Μεγάλο Κοραλλιογενή Ύφαλο;",
                     "options": [
-                        "USA",
-                        "Australia",
-                        "Brazil",
-                        "South Africa"
+                        "ΗΠΑ",
+                        "Αυστραλία",
+                        "Βραζιλία",
+                        "Νότια Αφρική"
                     ],
                     "answerIndex": 1,
                     "difficulty": "medium"
                 },
                 {
                     "id": 10,
-                    "text": "What is the boiling point of water at sea level?",
+                    "text": "Ποιο είναι το σημείο βρασμού του νερού στο επίπεδο της θάλασσας;",
                     "options": [
                         "90°C",
                         "95°C",
@@ -126,43 +127,43 @@
                 },
                 {
                     "id": 11,
-                    "text": "Which country has the largest population in the world?",
+                    "text": "Ποια χώρα έχει τον μεγαλύτερο πληθυσμό στον κόσμο;",
                     "options": [
-                        "India",
-                        "USA",
-                        "China",
-                        "Indonesia"
+                        "Ινδία",
+                        "ΗΠΑ",
+                        "Κίνα",
+                        "Ινδονησία"
                     ],
                     "answerIndex": 0,
                     "difficulty": "medium"
                 },
                 {
                     "id": 12,
-                    "text": "Who wrote the play 'Romeo and Juliet'?",
+                    "text": "Ποιος έγραψε το έργο 'Ρωμαίος και Ιουλιέτα';",
                     "options": [
-                        "Charles Dickens",
-                        "William Shakespeare",
-                        "Jane Austen",
-                        "Mark Twain"
+                        "Τσαρλς Ντίκενς",
+                        "Ουίλιαμ Σαίξπηρ",
+                        "Τζέιν Όστεν",
+                        "Μαρκ Τουέιν"
                     ],
                     "answerIndex": 1,
                     "difficulty": "medium"
                 },
                 {
                     "id": 13,
-                    "text": "Which gas do plants absorb during photosynthesis?",
+                    "text": "Ποιο αέριο απορροφούν τα φυτά κατά τη φωτοσύνθεση;",
                     "options": [
-                        "Oxygen",
-                        "Hydrogen",
-                        "Nitrogen",
-                        "Carbon Dioxide"
+                        "Οξυγόνο",
+                        "Υδρογόνο",
+                        "Άζωτο",
+                        "Διοξείδιο του Άνθρακα"
                     ],
                     "answerIndex": 3,
                     "difficulty": "medium"
                 },
                 {
                     "id": 14,
-                    "text": "What is the square root of 144?",
+                    "text": "Ποια είναι η τετραγωνική ρίζα του 144;",
                     "options": [
                         "10",
                         "11",
@@ -174,55 +175,55 @@
                 },
                 {
                     "id": 15,
-                    "text": "Which desert is the largest in the world by area?",
+                    "text": "Ποια είναι η μεγαλύτερη έρημος στον κόσμο σε έκταση;",
                     "options": [
-                        "Sahara",
-                        "Gobi",
-                        "Antarctic Desert",
-                        "Arabian"
+                        "Σαχάρα",
+                        "Γκόμπι",
+                        "Ανταρκτική Έρημος",
+                        "Αραβική"
                     ],
                     "answerIndex": 2,
                     "difficulty": "hard"
                 },
                 {
                     "id": 16,
-                    "text": "Which element has the atomic number 79?",
+                    "text": "Ποιο στοιχείο έχει ατομικό αριθμό 79;",
                     "options": [
-                        "Gold",
-                        "Platinum",
-                        "Silver",
-                        "Mercury"
+                        "Χρυσός",
+                        "Πλατίνα",
+                        "Αργυρός",
+                        "Υδράργυρος"
                     ],
                     "answerIndex": 0,
                     "difficulty": "hard"
                 },
                 {
                     "id": 17,
-                    "text": "What is the capital of Mongolia?",
+                    "text": "Ποια είναι η πρωτεύουσα της Μογγολίας;",
                     "options": [
-                        "Astana",
-                        "Ulaanbaatar",
-                        "Tashkent",
-                        "Bishkek"
+                        "Αστάνα",
+                        "Ουλάν Μπατόρ",
+                        "Τασκένδη",
+                        "Μπισκέκ"
                     ],
                     "answerIndex": 1,
                     "difficulty": "hard"
                 },
                 {
                     "id": 18,
-                    "text": "Which country has the most natural lakes?",
+                    "text": "Ποια χώρα έχει τις περισσότερες φυσικές λίμνες;",
                     "options": [
-                        "USA",
-                        "Canada",
-                        "Russia",
-                        "Finland"
+                        "ΗΠΑ",
+                        "Καναδάς",
+                        "Ρωσία",
+                        "Φινλανδία"
                     ],
                     "answerIndex": 1,
                     "difficulty": "hard"
                 },
                 {
                     "id": 19,
-                    "text": "What is the smallest prime number greater than 100?",
+                    "text": "Ποιος είναι ο μικρότερος πρώτος αριθμός μεγαλύτερος του 100;",
                     "options": [
                         "101",
                         "103",
@@ -234,12 +235,12 @@
                 },
                 {
                     "id": 20,
-                    "text": "Which scientist proposed the theory of general relativity?",
+                    "text": "Ποιος επιστήμονας διατύπωσε τη θεωρία της γενικής σχετικότητας;",
                     "options": [
-                        "Newton",
-                        "Tesla",
-                        "Bohr",
-                        "Einstein"
+                        "Νεύτων",
+                        "Τέσλα",
+                        "Μπορ",
+                        "Αϊνστάιν"
                     ],
                     "answerIndex": 3,
                     "difficulty": "hard"
@@ -248,23 +249,23 @@
         },
         {
             "id": "history",
-            "name": "History",
+            "name": "Ιστορία",
             "questions": [
                 {
                     "id": 1,
-                    "text": "Who was the first President of the United States?",
+                    "text": "Ποιος ήταν ο πρώτος Πρόεδρος των Ηνωμένων Πολιτειών;",
                     "options": [
-                        "George Washington",
-                        "Thomas Jefferson",
-                        "Abraham Lincoln",
-                        "John Adams"
+                        "Τζορτζ Ουάσινγκτον",
+                        "Τόμας Τζέφερσον",
+                        "Αβραάμ Λίνκολν",
+                        "Τζον Άνταμς"
                     ],
                     "answerIndex": 0,
                     "difficulty": "easy"
                 },
                 {
                     "id": 2,
-                    "text": "In which year did World War II end?",
+                    "text": "Ποια χρονιά τελείωσε ο Β' Παγκόσμιος Πόλεμος;",
                     "options": [
                         "1943",
                         "1944",
@@ -276,31 +277,31 @@
                 },
                 {
                     "id": 3,
-                    "text": "Which ancient civilization built the pyramids?",
+                    "text": "Ποιος αρχαίος πολιτισμός κατασκεύασε τις πυραμίδες;",
                     "options": [
-                        "Romans",
-                        "Greeks",
-                        "Aztecs",
-                        "Egyptians"
+                        "Ρωμαίοι",
+                        "Έλληνες",
+                        "Αζτέκοι",
+                        "Αιγύπτιοι"
                     ],
                     "answerIndex": 3,
                     "difficulty": "easy"
                 },
                 {
                     "id": 4,
-                    "text": "Who was known as the 'Iron Lady'?",
+                    "text": "Ποια ήταν γνωστή ως η «Σιδηρά Κυρία»;",
                     "options": [
-                        "Queen Elizabeth II",
-                        "Margaret Thatcher",
-                        "Angela Merkel",
-                        "Indira Gandhi"
+                        "Βασίλισσα Ελισάβετ Β'",
+                        "Μάργκαρετ Θάτσερ",
+                        "Άνγκελα Μέρκελ",
+                        "Ίντιρα Γκάντι"
                     ],
                     "answerIndex": 1,
                     "difficulty": "easy"
                 },
                 {
                     "id": 5,
-                    "text": "The Berlin Wall fell in which year?",
+                    "text": "Ποια χρονιά έπεσε το Τείχος του Βερολίνου;",
                     "options": [
                         "1987",
                         "1988",
@@ -312,55 +313,55 @@
                 },
                 {
                     "id": 6,
-                    "text": "Who discovered America in 1492?",
+                    "text": "Ποιος ανακάλυψε την Αμερική το 1492;",
                     "options": [
-                        "Christopher Columbus",
-                        "Marco Polo",
-                        "Vasco da Gama",
-                        "Ferdinand Magellan"
+                        "Χριστόφορος Κολόμβος",
+                        "Μάρκο Πόλο",
+                        "Βάσκο ντα Γκάμα",
+                        "Φερδινάνδος Μαγγελάνος"
                     ],
                     "answerIndex": 0,
                     "difficulty": "easy"
                 },
                 {
                     "id": 7,
-                    "text": "Who was the first man to walk on the Moon?",
+                    "text": "Ποιος ήταν ο πρώτος άνθρωπος που περπάτησε στη Σελήνη;",
                     "options": [
-                        "Buzz Aldrin",
-                        "Yuri Gagarin",
-                        "Neil Armstrong",
-                        "Michael Collins"
+                        "Μπαζ Όλντριν",
+                        "Γιούρι Γκαγκάριν",
+                        "Νιλ Άρμστρονγκ",
+                        "Μάικλ Κόλινς"
                     ],
                     "answerIndex": 2,
                     "difficulty": "easy"
                 },
                 {
                     "id": 8,
-                    "text": "Which war was fought between the North and South regions in the United States?",
+                    "text": "Ποιος πόλεμος διεξήχθη μεταξύ Βορρά και Νότου στις ΗΠΑ;",
                     "options": [
-                        "World War I",
-                        "Civil War",
-                        "Revolutionary War",
-                        "Cold War"
+                        "Α' Παγκόσμιος",
+                        "Εμφύλιος Πόλεμος",
+                        "Πόλεμος Ανεξαρτησίας",
+                        "Ψυχρός Πόλεμος"
                     ],
                     "answerIndex": 1,
                     "difficulty": "medium"
                 },
                 {
                     "id": 9,
-                    "text": "Which empire was ruled by Julius Caesar?",
+                    "text": "Ποια αυτοκρατορία κυβερνούσε ο Ιούλιος Καίσαρας;",
                     "options": [
-                        "Greek Empire",
-                        "British Empire",
-                        "Ottoman Empire",
-                        "Roman Empire"
+                        "Ελληνική",
+                        "Βρετανική",
+                        "Οθωμανική",
+                        "Ρωμαϊκή"
                     ],
                     "answerIndex": 3,
                     "difficulty": "medium"
                 },
                 {
                     "id": 10,
-                    "text": "The Titanic sank in which year?",
+                    "text": "Ποια χρονιά βυθίστηκε ο Τιτανικός;",
                     "options": [
                         "1905",
                         "1912",
@@ -372,43 +373,43 @@
                 },
                 {
                     "id": 11,
-                    "text": "Which revolution began in 1789?",
+                    "text": "Ποια επανάσταση ξεκίνησε το 1789;",
                     "options": [
-                        "French",
-                        "American",
-                        "Russian",
-                        "Industrial"
+                        "Γαλλική",
+                        "Αμερικανική",
+                        "Ρωσική",
+                        "Βιομηχανική"
                     ],
                     "answerIndex": 0,
                     "difficulty": "medium"
                 },
                 {
                     "id": 12,
-                    "text": "Who was the leader of Nazi Germany?",
+                    "text": "Ποιος ήταν ο ηγέτης της Ναζιστικής Γερμανίας;",
                     "options": [
-                        "Stalin",
-                        "Hitler",
-                        "Mussolini",
-                        "Franco"
+                        "Στάλιν",
+                        "Χίτλερ",
+                        "Μουσολίνι",
+                        "Φράνκο"
                     ],
                     "answerIndex": 1,
                     "difficulty": "medium"
                 },
                 {
                     "id": 13,
-                    "text": "Which empire built the Colosseum?",
+                    "text": "Ποια αυτοκρατορία κατασκεύασε το Κολοσσαίο;",
                     "options": [
-                        "Greek",
-                        "Persian",
-                        "Roman",
-                        "Byzantine"
+                        "Ελληνική",
+                        "Περσική",
+                        "Ρωμαϊκή",
+                        "Βυζαντινή"
                     ],
                     "answerIndex": 2,
                     "difficulty": "medium"
                 },
                 {
                     "id": 14,
-                    "text": "In which year did the Cold War officially end?",
+                    "text": "Ποια χρονιά έληξε επίσημα ο Ψυχρός Πόλεμος;",
                     "options": [
                         "1989",
                         "1991",
@@ -420,72 +421,72 @@
                 },
                 {
                     "id": 15,
-                    "text": "Which treaty ended World War I?",
+                    "text": "Ποια συνθήκη έληξε τον Α' Παγκόσμιο Πόλεμο;",
                     "options": [
-                        "Treaty of Versailles",
-                        "Treaty of Paris",
-                        "Treaty of Rome",
-                        "Treaty of Berlin"
+                        "Συνθήκη των Βερσαλλιών",
+                        "Συνθήκη των Παρισίων",
+                        "Συνθήκη της Ρώμης",
+                        "Συνθήκη του Βερολίνου"
                     ],
                     "answerIndex": 0,
                     "difficulty": "hard"
                 },
                 {
                     "id": 16,
-                    "text": "Who was the British Prime Minister during most of World War II?",
+                    "text": "Ποιος ήταν Πρωθυπουργός του Ηνωμένου Βασιλείου κατά το μεγαλύτερο μέρος του Β' Παγκοσμίου Πολέμου;",
                     "options": [
-                        "Churchill",
-                        "Chamberlain",
-                        "Attlee",
-                        "Blair"
+                        "Τσόρτσιλ",
+                        "Τσάμπερλεν",
+                        "Άτλι",
+                        "Μπλερ"
                     ],
                     "answerIndex": 0,
                     "difficulty": "hard"
                 },
                 {
                     "id": 17,
-                    "text": "Which dynasty built the Great Wall of China in its current form?",
+                    "text": "Ποια δυναστεία κατασκεύασε το Σινικό Τείχος στη σημερινή γνωστή μορφή του;",
                     "options": [
-                        "Han",
-                        "Qing",
-                        "Ming",
-                        "Tang"
+                        "Χαν",
+                        "Τσινγκ",
+                        "Μινγκ",
+                        "Τανγκ"
                     ],
                     "answerIndex": 2,
                     "difficulty": "hard"
                 },
                 {
                     "id": 18,
-                    "text": "Which battle marked the defeat of Napoleon in 1815?",
+                    "text": "Ποια μάχη σήμανε την ήττα του Ναπολέοντα το 1815;",
                     "options": [
-                        "Trafalgar",
-                        "Waterloo",
-                        "Austerlitz",
-                        "Leipzig"
+                        "Τραφάλγκαρ",
+                        "Βατερλώ",
+                        "Άουστερλιτς",
+                        "Λειψία"
                     ],
                     "answerIndex": 1,
                     "difficulty": "hard"
                 },
                 {
                     "id": 19,
-                    "text": "Who was the first female Prime Minister of the UK?",
+                    "text": "Ποια ήταν η πρώτη γυναίκα Πρωθυπουργός του Ηνωμένου Βασιλείου;",
                     "options": [
-                        "Theresa May",
-                        "Margaret Thatcher",
-                        "Angela Merkel",
-                        "Indira Gandhi"
+                        "Τερέζα Μέι",
+                        "Μάργκαρετ Θάτσερ",
+                        "Άνγκελα Μέρκελ",
+                        "Ίντιρα Γκάντι"
                     ],
                     "answerIndex": 1,
                     "difficulty": "hard"
                 },
                 {
                     "id": 20,
-                    "text": "Which empire was centred in Constantinople?",
+                    "text": "Ποια αυτοκρατορία είχε ως κέντρο την Κωνσταντινούπολη;",
                     "options": [
-                        "Ottoman",
-                        "Roman",
-                        "Byzantine",
-                        "Persian"
+                        "Οθωμανική",
+                        "Ρωμαϊκή",
+                        "Βυζαντινή",
+                        "Περσική"
                     ],
                     "answerIndex": 2,
                     "difficulty": "hard"
@@ -494,11 +495,11 @@
         },
         {
             "id": "sports",
-            "name": "Sports",
+            "name": "Αθλητισμός",
             "questions": [
                 {
                     "id": 1,
-                    "text": "How many players are on a football (soccer) team on the field?",
+                    "text": "Πόσοι παίκτες βρίσκονται στο γήπεδο σε μια ομάδα ποδοσφαίρου;",
                     "options": [
                         "11",
                         "10",
@@ -510,22 +511,22 @@
                 },
                 {
                     "id": 2,
-                    "text": "Which country won the FIFA World Cup in 2018?",
+                    "text": "Ποια χώρα κατέκτησε το Παγκόσμιο Κύπελλο ποδοσφαίρου το 2018;",
                     "options": [
-                        "Germany",
-                        "Brazil",
-                        "France",
-                        "Argentina"
+                        "Γερμανία",
+                        "Βραζιλία",
+                        "Γαλλία",
+                        "Αργεντινή"
                     ],
                     "answerIndex": 2,
                     "difficulty": "easy"
                 },
                 {
                     "id": 3,
-                    "text": "In tennis, what is the term for a score of zero?",
+                    "text": "Στο τένις, ποιος είναι ο όρος για το μηδέν;",
                     "options": [
-                        "Nil",
-                        "Zero",
+                        "Νιλ",
+                        "Μηδέν",
                         "Love",
                         "Blank"
                     ],
@@ -534,19 +535,19 @@
                 },
                 {
                     "id": 4,
-                    "text": "Which sport uses a shuttlecock?",
+                    "text": "Σε ποιο άθλημα χρησιμοποιείται το φτερό (shuttlecock);",
                     "options": [
-                        "Tennis",
-                        "Badminton",
-                        "Squash",
-                        "Table Tennis"
+                        "Τένις",
+                        "Μπάντμιντον",
+                        "Σκουός",
+                        "Πινγκ-πονγκ"
                     ],
                     "answerIndex": 1,
                     "difficulty": "easy"
                 },
                 {
                     "id": 5,
-                    "text": "How many rings are on the Olympic flag?",
+                    "text": "Πόσοι κρίκοι υπάρχουν στη σημαία των Ολυμπιακών Αγώνων;",
                     "options": [
                         "4",
                         "7",
@@ -558,103 +559,103 @@
                 },
                 {
                     "id": 6,
-                    "text": "In which sport would you perform a slam dunk?",
+                    "text": "Σε ποιο άθλημα εκτελείται ένα slam dunk;",
                     "options": [
-                        "Volleyball",
-                        "Basketball",
-                        "Handball",
-                        "Rugby"
+                        "Βόλεϊ",
+                        "Μπάσκετ",
+                        "Χάντμπολ",
+                        "Ράγκμπι"
                     ],
                     "answerIndex": 1,
                     "difficulty": "easy"
                 },
                 {
                     "id": 7,
-                    "text": "Which sport is associated with Wimbledon?",
+                    "text": "Με ποιο άθλημα συνδέεται το Wimbledon;",
                     "options": [
-                        "Golf",
-                        "Rugby",
-                        "Cricket",
-                        "Tennis"
+                        "Γκολφ",
+                        "Ράγκμπι",
+                        "Κρίκετ",
+                        "Τένις"
                     ],
                     "answerIndex": 3,
                     "difficulty": "easy"
                 },
                 {
                     "id": 8,
-                    "text": "Which country is famous for cricket?",
+                    "text": "Ποια χώρα είναι γνωστή για το κρίκετ;",
                     "options": [
-                        "USA",
-                        "India",
-                        "Japan",
-                        "Spain"
+                        "ΗΠΑ",
+                        "Ινδία",
+                        "Ιαπωνία",
+                        "Ισπανία"
                     ],
                     "answerIndex": 1,
                     "difficulty": "medium"
                 },
                 {
                     "id": 9,
-                    "text": "How long is an Olympic swimming pool?",
+                    "text": "Πόσο μήκος έχει μια ολυμπιακή πισίνα;",
                     "options": [
-                        "25m",
-                        "50m",
-                        "75m",
-                        "100m"
+                        "25μ",
+                        "50μ",
+                        "75μ",
+                        "100μ"
                     ],
                     "answerIndex": 1,
                     "difficulty": "medium"
                 },
                 {
                     "id": 10,
-                    "text": "Which athlete is known as the fastest man in the world?",
+                    "text": "Ποιος αθλητής είναι γνωστός ως ο πιο γρήγορος άνθρωπος στον κόσμο;",
                     "options": [
-                        "Usain Bolt",
-                        "Mo Farah",
-                        "Cristiano Ronaldo",
-                        "Lionel Messi"
+                        "Γιουσέιν Μπολτ",
+                        "Μο Φάρα",
+                        "Κριστιάνο Ρονάλντο",
+                        "Λιονέλ Μέσι"
                     ],
                     "answerIndex": 0,
                     "difficulty": "medium"
                 },
                 {
                     "id": 11,
-                    "text": "In which sport is the Ryder Cup contested?",
+                    "text": "Σε ποιο άθλημα διεξάγεται το Ryder Cup;",
                     "options": [
-                        "Golf",
-                        "Tennis",
-                        "Cricket",
-                        "Hockey"
+                        "Γκολφ",
+                        "Τένις",
+                        "Κρίκετ",
+                        "Χόκεϊ"
                     ],
                     "answerIndex": 0,
                     "difficulty": "medium"
                 },
                 {
                     "id": 12,
-                    "text": "Which country hosted the first modern Olympic Games in 1896?",
+                    "text": "Ποια χώρα φιλοξένησε τους πρώτους σύγχρονους Ολυμπιακούς Αγώνες το 1896;",
                     "options": [
-                        "USA",
-                        "Spain",
-                        "Greece",
-                        "China"
+                        "ΗΠΑ",
+                        "Ισπανία",
+                        "Ελλάδα",
+                        "Κίνα"
                     ],
                     "answerIndex": 2,
                     "difficulty": "medium"
                 },
                 {
                     "id": 13,
-                    "text": "In which sport would you perform a hat-trick?",
+                    "text": "Σε ποιο άθλημα πετυχαίνεται ένα hat-trick;",
                     "options": [
-                        "Rugby",
-                        "Basketball",
-                        "Baseball",
-                        "Football (Soccer)"
+                        "Ράγκμπι",
+                        "Μπάσκετ",
+                        "Μπέιζμπολ",
+                        "Ποδόσφαιρο"
                     ],
                     "answerIndex": 3,
                     "difficulty": "medium"
                 },
                 {
                     "id": 14,
-                    "text": "How many sets are played in a standard men's Grand Slam tennis final?",
+                    "text": "Πόσα σετ παίζονται σε έναν τελικό Grand Slam ανδρών, στο τένις;",
                     "options": [
                         "3",
                         "4",
@@ -666,19 +667,19 @@
                 },
                 {
                     "id": 15,
-                    "text": "Which country won the first ever FIFA World Cup in 1930?",
+                    "text": "Ποια χώρα κατέκτησε το πρώτο Παγκόσμιο Κύπελλο ποδοσφαίρου το 1930;",
                     "options": [
-                        "Brazil",
-                        "Italy",
-                        "Uruguay",
-                        "Germany"
+                        "Βραζιλία",
+                        "Ιταλία",
+                        "Ουρουγουάη",
+                        "Γερμανία"
                     ],
                     "answerIndex": 2,
                     "difficulty": "hard"
                 },
                 {
                     "id": 16,
-                    "text": "In Formula 1, what does DRS stand for?",
+                    "text": "Στη Formula 1, τι σημαίνει DRS;",
                     "options": [
                         "Dynamic Racing System",
                         "Drag Reduction System",
@@ -690,19 +691,19 @@
                 },
                 {
                     "id": 17,
-                    "text": "Which boxer was known as 'The Greatest'?",
+                    "text": "Ποιος πυγμάχος ήταν γνωστός ως «Ο Μεγαλύτερος» (The Greatest);",
                     "options": [
-                        "Tyson",
-                        "Ali",
-                        "Mayweather",
-                        "Frazier"
+                        "Τάισον",
+                        "Άλι",
+                        "Μέιγουεδερ",
+                        "Φρέιζερ"
                     ],
                     "answerIndex": 1,
                     "difficulty": "hard"
                 },
                 {
                     "id": 18,
-                    "text": "How many players are on a baseball team on the field?",
+                    "text": "Πόσοι παίκτες βρίσκονται στο γήπεδο σε μια ομάδα μπέιζμπολ;",
                     "options": [
                         "7",
                         "8",
@@ -714,24 +715,24 @@
                 },
                 {
                     "id": 19,
-                    "text": "Which country has won the most Olympic medals overall?",
+                    "text": "Ποια χώρα έχει κερδίσει τα περισσότερα Ολυμπιακά μετάλλια συνολικά;",
                     "options": [
-                        "China",
-                        "USA",
-                        "Russia",
-                        "UK"
+                        "Κίνα",
+                        "ΗΠΑ",
+                        "Ρωσία",
+                        "Ηνωμένο Βασίλειο"
                     ],
                     "answerIndex": 1,
                     "difficulty": "hard"
                 },
                 {
                     "id": 20,
-                    "text": "Which tennis player has won the most Grand Slam titles (men's singles)?",
+                    "text": "Ποιος τενίστας έχει κερδίσει τους περισσότερους τίτλους Grand Slam (μονά ανδρών);",
                     "options": [
-                        "Federer",
-                        "Nadal",
-                        "Sampras",
-                        "Djokovic"
+                        "Φέντερερ",
+                        "Ναδάλ",
+                        "Σάμπρας",
+                        "Ντζόκοβιτς"
                     ],
                     "answerIndex": 3,
                     "difficulty": "hard"
@@ -740,23 +741,23 @@
         },
         {
             "id": "tv_movies",
-            "name": "TV & Movies",
+            "name": "Τηλεόραση & Ταινίες",
             "questions": [
                 {
                     "id": 1,
-                    "text": "Who directed the movie 'Titanic'?",
+                    "text": "Ποιος σκηνοθέτησε την ταινία 'Τιτανικός';",
                     "options": [
-                        "Steven Spielberg",
-                        "James Cameron",
-                        "Christopher Nolan",
-                        "Martin Scorsese"
+                        "Στίβεν Σπίλμπεργκ",
+                        "Τζέιμς Κάμερον",
+                        "Κρίστοφερ Νόλαν",
+                        "Μάρτιν Σκορσέζε"
                     ],
                     "answerIndex": 1,
                     "difficulty": "easy"
                 },
                 {
                     "id": 2,
-                    "text": "Which TV series features the Stark family?",
+                    "text": "Ποια τηλεοπτική σειρά περιλαμβάνει την οικογένεια Σταρκ;",
                     "options": [
                         "Breaking Bad",
                         "Game of Thrones",
@@ -768,31 +769,31 @@
                 },
                 {
                     "id": 3,
-                    "text": "Who played Iron Man in the Marvel Cinematic Universe?",
+                    "text": "Ποιος υποδύθηκε τον Iron Man στο κινηματογραφικό Σύμπαν της Marvel;",
                     "options": [
-                        "Chris Evans",
-                        "Chris Hemsworth",
-                        "Robert Downey Jr.",
-                        "Mark Ruffalo"
+                        "Κρις Έβανς",
+                        "Κρις Χέμσγουορθ",
+                        "Ρόμπερτ Ντάουνι Τζ.",
+                        "Μαρκ Ράφαλο"
                     ],
                     "answerIndex": 2,
                     "difficulty": "easy"
                 },
                 {
                     "id": 4,
-                    "text": "What is the name of the primary wizarding school in Harry Potter?",
+                    "text": "Ποιο είναι το όνομα της κύριας σχολής μαγείας στο Harry Potter;",
                     "options": [
-                        "Durmstrang",
-                        "Beauxbatons",
-                        "Hogwarts",
-                        "Ilvermorny"
+                        "Ντάρμστρανγκ",
+                        "Μπομπατόν",
+                        "Χόγκουαρτς",
+                        "Ιλβερμόρνι"
                     ],
                     "answerIndex": 2,
                     "difficulty": "easy"
                 },
                 {
                     "id": 5,
-                    "text": "Which animated movie features the character Elsa?",
+                    "text": "Ποια ταινία κινουμένων σχεδίων περιλαμβάνει τον χαρακτήρα Έλσα;",
                     "options": [
                         "Moana",
                         "Brave",
@@ -804,7 +805,7 @@
                 },
                 {
                     "id": 6,
-                    "text": "Which movie features the quote 'I'll be back'?",
+                    "text": "Σε ποια ταινία ακούγεται η φράση 'I'll be back';",
                     "options": [
                         "Rambo",
                         "The Terminator",
@@ -816,7 +817,7 @@
                 },
                 {
                     "id": 7,
-                    "text": "Which streaming platform produced 'Stranger Things'?",
+                    "text": "Ποια πλατφόρμα streaming παρήγαγε το 'Stranger Things';",
                     "options": [
                         "Amazon Prime",
                         "Disney+",
@@ -828,19 +829,19 @@
                 },
                 {
                     "id": 8,
-                    "text": "Who played Jack Sparrow in Pirates of the Caribbean?",
+                    "text": "Ποιος υποδύθηκε τον Τζακ Σπάροου στους Πειρατές της Καραϊβικής;",
                     "options": [
-                        "Orlando Bloom",
-                        "Johnny Depp",
-                        "Leonardo DiCaprio",
-                        "Brad Pitt"
+                        "Ορλάντο Μπλουμ",
+                        "Τζόνι Ντεπ",
+                        "Λεονάρντο Ντι Κάπριο",
+                        "Μπραντ Πιτ"
                     ],
                     "answerIndex": 1,
                     "difficulty": "medium"
                 },
                 {
                     "id": 9,
-                    "text": "Which movie won Best Picture at the Oscars in 2020?",
+                    "text": "Ποια ταινία κέρδισε Όσκαρ Καλύτερης Ταινίας το 2020;",
                     "options": [
                         "1917",
                         "Joker",
@@ -852,19 +853,19 @@
                 },
                 {
                     "id": 10,
-                    "text": "Which actor played the Joker in 'The Dark Knight'?",
+                    "text": "Ποιος ηθοποιός υποδύθηκε τον Τζόκερ στο 'The Dark Knight';",
                     "options": [
-                        "Joaquin Phoenix",
-                        "Christian Bale",
-                        "Jared Leto",
-                        "Heath Ledger"
+                        "Χοακίν Φίνιξ",
+                        "Κρίστιαν Μπέιλ",
+                        "Τζάρεντ Λέτο",
+                        "Χιθ Λέτζερ"
                     ],
                     "answerIndex": 3,
                     "difficulty": "medium"
                 },
                 {
                     "id": 11,
-                    "text": "Which film franchise features the character Dominic Toretto?",
+                    "text": "Ποια κινηματογραφική σειρά περιλαμβάνει τον χαρακτήρα Dominic Toretto;",
                     "options": [
                         "Mission Impossible",
                         "Fast & Furious",
@@ -876,7 +877,7 @@
                 },
                 {
                     "id": 12,
-                    "text": "Which series is set in Hawkins, Indiana?",
+                    "text": "Ποια σειρά διαδραματίζεται στο Χόκινς της Ιντιάνα;",
                     "options": [
                         "Lost",
                         "Stranger Things",
@@ -888,7 +889,7 @@
                 },
                 {
                     "id": 13,
-                    "text": "Who created the TV show 'Breaking Bad'?",
+                    "text": "Ποιος δημιούργησε την τηλεοπτική σειρά 'Breaking Bad';",
                     "options": [
                         "Vince Gilligan",
                         "David Chase",
@@ -900,7 +901,7 @@
                 },
                 {
                     "id": 14,
-                    "text": "Which movie features the character Neo?",
+                    "text": "Σε ποια ταινία εμφανίζεται ο χαρακτήρας Neo;",
                     "options": [
                         "Inception",
                         "The Matrix",
@@ -912,19 +913,19 @@
                 },
                 {
                     "id": 15,
-                    "text": "Which director is known for the movie 'Pulp Fiction'?",
+                    "text": "Ποιος σκηνοθέτης είναι γνωστός για την ταινία 'Pulp Fiction';",
                     "options": [
-                        "Tarantino",
-                        "Scorsese",
-                        "Kubrick",
-                        "Nolan"
+                        "Ταραντίνο",
+                        "Σκορσέζε",
+                        "Κιούμπρικ",
+                        "Νόλαν"
                     ],
                     "answerIndex": 0,
                     "difficulty": "hard"
                 },
                 {
                     "id": 16,
-                    "text": "Which movie won Best Picture at the Oscars in 1994?",
+                    "text": "Ποια ταινία κέρδισε Όσκαρ Καλύτερης Ταινίας το 1994;",
                     "options": [
                         "Pulp Fiction",
                         "Forrest Gump",
@@ -936,19 +937,19 @@
                 },
                 {
                     "id": 17,
-                    "text": "Which actor portrayed Vito Corleone in 'The Godfather'?",
+                    "text": "Ποιος ηθοποιός υποδύθηκε τον Βίτο Κορλεόνε στο 'The Godfather';",
                     "options": [
-                        "Al Pacino",
-                        "Robert De Niro",
-                        "Marlon Brando",
-                        "James Caan"
+                        "Αλ Πατσίνο",
+                        "Ρόμπερτ Ντε Νίρο",
+                        "Μάρλον Μπράντο",
+                        "Τζέιμς Κάαν"
                     ],
                     "answerIndex": 2,
                     "difficulty": "hard"
                 },
                 {
                     "id": 18,
-                    "text": "Which animated studio produced 'Spirited Away'?",
+                    "text": "Ποιο στούντιο κινουμένων σχεδίων παρήγαγε το 'Spirited Away';",
                     "options": [
                         "Pixar",
                         "DreamWorks",
@@ -960,7 +961,7 @@
                 },
                 {
                     "id": 19,
-                    "text": "Which series was created by David Benioff and D.B. Weiss?",
+                    "text": "Ποια σειρά δημιουργήθηκε από τους David Benioff και D.B. Weiss;",
                     "options": [
                         "The Witcher",
                         "Game of Thrones",
@@ -972,12 +973,12 @@
                 },
                 {
                     "id": 20,
-                    "text": "Which actor played the lead role in the film 'Gladiator'?",
+                    "text": "Ποιος ηθοποιός είχε τον πρωταγωνιστικό ρόλο στην ταινία 'Gladiator';",
                     "options": [
-                        "Brad Pitt",
-                        "Russell Crowe",
-                        "Mel Gibson",
-                        "Tom Hardy"
+                        "Μπραντ Πιτ",
+                        "Ράσελ Κρόου",
+                        "Μελ Γκίμπσον",
+                        "Τομ Χάρντι"
                     ],
                     "answerIndex": 1,
                     "difficulty": "hard"
@@ -985,4 +986,4 @@
             ]
         }
     ]
-}
+}; 

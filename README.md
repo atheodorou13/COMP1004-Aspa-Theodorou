@@ -1,13 +1,61 @@
-=========== COMP1004 ========= 2025-2026
+== Trivia Fiesta ==
+|| Celebrate knowledge, one question at a time! ||
 
-Student: Aspa Theodorou Student number: 10911878
+== Module : COMP1004 Computing Practice 2025-2026 ==
+* Student: Aspa Theodorou
+* Student number: 10911878
+* Stand-up leader: Dr Lauren Ansell
 
-Stand up leader: Dr Lauren Ansell
 
-Project title: "Trivia Fiesta - Celebrate knowledge, one question at a time!"
+== Project overview ==
+Trivia Fiest is a browser-based Single Page Application (SPA) quiz system developed using vanilla HTML, CSS and JavaScript.
 
-Project vision: Trivia Fiesta is a web-based quiz application developed as part of the COMP1004 Computing Practice module. The aim of the project is to design and implement a Single Page Application (SPA) that provides an engaging, accessible, and customisable quiz experience using only front-end web technologies.
+The application delivers a dynamic, bilingual quiz experience where users can:
+* Select quiz categories
+* Choose difficulty levels
+* Switch between English and Greek
+* Upload custom Quiz data via JSON
+* Track high scores locally
+* Toggle sound and theme preferences
 
-The application allows users to select quiz categories and choose their preferred language (English or Greek), with questions dynamically loaded from structured JSON files. By supporting bilingual content and accessibility features such as text-to-speech and a light/dark theme toggle, the project aims to be inclusive and usable by a wide range of users.
+The project demonstrates practical application of front-end development principles, structured data handling, and core software engineering concepts aligned with the Software Development Lifecycle (SDLC)
 
-Trivia Fiesta is developed following an agile approach, with iterative sprints mapped to the stages of the software development lifecycle. The project focuses on demonstrating good software engineering practices, accessibility considerations, and clear application of SDLC principles, while delivering a fun and interactive learning experience.
+== Key Features ==
+* Bilingual support (Greek/English)
+* Dynamic question loading (JSON)
+* Category & difficulty filtering
+* Countdown timer with visual feedback
+* Sound effects with toggle control
+* Light / Dark mode toggle
+* Local leaderboard 
+* Custom quiz JSON upload
+* Downloadable quiz template
+* Responsive layout
+* Accessibility-consious design
+
+== Technologies Used ==
+* HTML
+* CSS
+* JavaScript
+* LocalStorage
+* JSON Data structures
+* Custom DOM Rendering Helper
+* No external frameworks or libraries were used 
+
+== Architecture ==
+A single page application architecture was followed. A custom helper function is used to dynamically generate DOM elements, mimicking component-based rendering without using a framework.
+
+The application state is centrally managed through a state object that controls:
+* current language
+* selected category
+* difficulty
+* questions index
+* user answers
+* timer
+* sound preference
+* theme preference
+
+== Data layer ==
+* questions are loaded dynamically from structured files
+* each file follows input validation ensuring data integrity
+

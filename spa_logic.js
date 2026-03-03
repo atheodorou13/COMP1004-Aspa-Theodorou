@@ -34,7 +34,6 @@ function shuffleArray(array) {
 
 
 function startTimer() {
-    state.timeLeft = 15;
 
     state.timer = setInterval(() => {
         state.timeLeft--;
@@ -401,9 +400,9 @@ function renderLanguageView() {
 
 
 /* ---------- Load language ---------- */
-async function startWithLanguage(lang) {
+function startWithLanguage(lang) {
     state.language = lang;
-    state.data = await loadQuestions(lang);
+    state.data = loadQuestions(lang);
     state.categoryId = null;
     state.qIndex = 0;
     state.answers = [];
@@ -538,6 +537,9 @@ function getActiveCategory() {
 
 /* ---------- Question view ---------- */
 function renderQuestionView() {
+    if (!state.answered) {
+        state.timeLeft = 15;  // reset BEFORE building the view
+    }
     const questions = state.questions;
     const q = questions[state.qIndex];
 
@@ -644,10 +646,10 @@ function renderQuestionView() {
     ]);
     stopTimer();
 
-    setView(app, view);   // render first
+    setView(app, view);
 
     if (!state.answered) {
-        startTimer();     // start timer AFTER render
+        startTimer();
     }
 }
 
