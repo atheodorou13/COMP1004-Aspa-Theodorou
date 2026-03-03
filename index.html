@@ -1,3 +1,19 @@
+<!--
+  Trivia Fiesta - Single Page Application (SPA)
+
+  Entry point of the application.
+  Defines the main layout structure (header, stage, and app container)
+  and loads all required modules:
+
+  - Question datasets (English & Greek)
+  - Data loader
+  - DOM helper utilities
+  - SPA application logic
+
+  The dynamic content is rendered inside the #app container
+  using JavaScript, following a client-side SPA architecture.
+-->
+
 <!doctype html>
 <html lang="en">
 
@@ -35,7 +51,7 @@
             </div>
         </header>
 
-        <main class="stage" aria-live="polite">
+        <main class="stage" aria-live="polite"> <!-- aria-live improves accessibility for dynamic SPA updates -->
             <div id="app" class="app"></div>
         </main>
 

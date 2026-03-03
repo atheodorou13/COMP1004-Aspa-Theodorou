@@ -1,3 +1,12 @@
+/*  This helper avoids using innerHTML, improves safety,
+  and keeps UI rendering consistent across the application.
+
+- el() creates elements with attributes, event listeners,
+    and children in a structured way.
+  - setView() replaces the current view, supporting SPA-style rendering.
+
+*/
+
 function el(tag, attrs = {}, children = []) {
     const node = document.createElement(tag);
 

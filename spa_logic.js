@@ -1,5 +1,28 @@
+/*
+  Trivia Fiesta - SPA Application Logic
+
+  This file controls the core functionality of the application,
+  including:
+
+  - Global state management
+  - View rendering and navigation
+  - Timer control and timeout handling
+  - Answer selection and validation
+  - Score calculation and leaderboard storage (localStorage)
+  - Language switching (English / Greek)
+  - Sound and theme toggles
+
+  The application follows a Single Page Application (SPA) model,
+  where views are dynamically rendered inside the #app container
+  without page reloads.
+*/
+
+
 const app = document.getElementById("app");
 const themeBtn = document.getElementById("themeBtn");
+
+/* Centralised application state object.
+Stores quiz progress, UI state, and user preferences. */
 
 const state = {
     language: "en",
@@ -34,11 +57,13 @@ function shuffleArray(array) {
 
 
 function startTimer() {
+    stopTimer();
+
     state.timeLeft = 15;
     updateTimerDisplay();
+
     state.timer = setInterval(() => {
         state.timeLeft--;
-
         updateTimerDisplay();
 
         if (state.timeLeft <= 0) {

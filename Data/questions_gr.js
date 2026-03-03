@@ -1,3 +1,25 @@
+/*  This file stores structured quiz data as JavaScript constants
+  (QUESTIONS_EN and QUESTIONS_GR).
+
+  The data follows a strict JSON-like structure:
+  {
+      categories: [
+          {
+              id,
+              name,
+              questions: [
+                  { id, text, options[4], answerIndex, difficulty }
+              ]
+          }
+      ]
+  }
+
+  Keeping the data separate from the application logic
+  improves maintainability and modularity.
+*/
+
+
+
 const QUESTIONS_GR =
 {
     "categories": [
