@@ -208,7 +208,7 @@ function loadCustomQuiz(file) {
 }
 
 
-/* ---------- Download quiz template ---------- */
+/* ---------- Download quiz template English ---------- */
 function downloadTemplate() {
 
     const template = {
@@ -287,6 +287,87 @@ function downloadTemplate() {
     URL.revokeObjectURL(url);
 }
 
+
+/* ---------- Download quiz template Greek ---------- */
+function downloadTemplateGR() {
+
+    const template = {
+        instructions: {
+            note_1: "Μην αλλάξετε την βασική δομή: { categories: [...] }",
+            note_2: "Κάθε κατηγορία πρέπει να έχει: id, name, και questions array.",
+            note_3: "Κάθε ερώτηση πρέπει να έχει: id, text, options (4), answerIndex (0-3), difficulty.",
+            note_4: "Το answerIndex είναι η θέση της σωστής απάντησης μέσα στο options array.",
+            note_5: "Η δυσκολια (difficulty) πρέπει να είναι: easy (εύκολο), medium (μεσαίο), hard (δύσκολο).",
+            note_6: "Τα IDs πρέπει να είναι μοναδικά σε κάθε κατηγορία."
+        },
+
+        categories: [
+            {
+                id: "general",
+                name: "Γενικες Γνωσεις",
+                questions: [
+                    {
+                        "id": 1,
+                        "text": "Ποιος πλανήτης είναι γνωστός ως 'Ο Κόκκινος Πλανήτης';",
+                        "options": [
+                            "Αφροδίτη",
+                            "Άρης",
+                            "Δίας",
+                            "Κρόνος"
+                        ],
+                        "answerIndex": 1,
+                        "difficulty": "easy"
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ποιο αέριο απορροφούν τα φυτά κατά τη φωτοσύνθεση;",
+                        "options": [
+                            "Οξυγόνο",
+                            "Υδρογόνο",
+                            "Άζωτο",
+                            "Διοξείδιο του Άνθρακα"
+                        ],
+                        "answerIndex": 3,
+                        "difficulty": "medium"
+                    }
+                ]
+            },
+            {
+                id: "history",
+                name: "Ιστορια",
+                questions: [
+                    {
+                        id: 1,
+                        "text": "Ποια χρονιά τελείωσε ο Β' Παγκόσμιος Πόλεμος;",
+                        "options": [
+                            "1943",
+                            "1944",
+                            "1945",
+                            "1946"
+                        ],
+                        answerIndex: 2,
+                        difficulty: "easy"
+                    }
+                ]
+            }
+        ]
+    };
+
+    const blob = new Blob([JSON.stringify(template, null, 2)], {
+        type: "application/json"
+    });
+
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "quiz-template-gr.json";
+    a.click();
+
+    URL.revokeObjectURL(url);
+}
+
+
 /* ---------- UI translations ---------- */
 const UI_TEXT = {
     en: {
@@ -314,18 +395,18 @@ const UI_TEXT = {
     },
     gr: {
         chooseLanguage: "Επιλογη Γλωσσας",
-        chooseCategory: "Επιλογή Κατηγορίας",
-        chooseDifficulty: "Επιλογή Δυσκολίας",
-        easy: "Εύκολο",
-        medium: "Μεσαίο",
-        hard: "Δύσκολο",
-        allLevels: "Όλα τα Επίπεδα",
-        noQuestions: "Δεν υπάρχουν ερωτήσεις για αυτό το επίπεδο.",
+        chooseCategory: "Επιλογη Κατηγοριας",
+        chooseDifficulty: "Επιλογη Δυσκολιας",
+        easy: "Ευκολο",
+        medium: "Μεσαιο",
+        hard: "Δυσκολο",
+        allLevels: "Όλα τα Επιπεδα",
+        noQuestions: "Δεν υπαρχουν ερωτησεις για αυτο το επιπεδο.",
         questionOf: (i, total) => `Ερωτηση ${i} απο ${total}`,
         next: "Επομενο",
-        back: "Πισω",
+        back: "ΠΙΣΩ",
         finish: "Τελος",
-        results: "Αποτελέσματα",
+        results: "Αποτελεσματα",
         score: (s, total) => `Σκορ: ${s} / ${total}`,
         playAgain: "Παιξε Ξανα",
         selectAnswerFirst: "Διάλεξε πρώτα μια απάντηση.",
@@ -377,6 +458,8 @@ function renderLanguageView() {
         }
     });
 
+
+
     const view = el("div", { className: "card" }, [
         el("h2", {}, ["Choose Language / Επιλογή Γλώσσας"]),
 
@@ -402,20 +485,49 @@ function renderLanguageView() {
                 className: "btn-choice",
                 type: "button",
                 onClick: downloadTemplate
-            }, ["Download Quiz Template"]),
+            }, ["Download Quiz Template (English)"]),
 
             el("button", {
                 className: "btn-choice",
                 type: "button",
                 onClick: () => fileInput.click()
             }, ["Upload Custom Quiz (JSON)"])
+
         ]),
 
+        /* English explanation */
         el("p", {
             className: "muted",
             style: "text-align:center; max-width:600px; margin:10px auto;"
         }, [
-            "Download the template, edit it using any text editor, save as .json and upload it here."
+            "Download the template, edit in any text editor to create your own quiz using the structure provided, save it as a .json file and upload it here."
+        ]),
+
+        el("hr"),
+
+        el("div", { className: "choice-row centered" }, [
+
+            el("button", {
+                className: "btn-choice",
+                type: "button",
+                onClick: downloadTemplateGR
+            }, ["Κατεβασε αδειο προτυπο quiz"]),
+
+            el("button", {
+                className: "btn-choice",
+                type: "button",
+                onClick: () => fileInput.click()
+            }, ["Ανεβασε το Quiz σου (JSON)"])
+
+        ]),
+
+
+        /* Greek explanation */
+        el("p", {
+            className: "muted",
+            style: "text-align:center; max-width:600px; margin:10px auto;"
+        }, [
+            "Κατέβασε το άδειο πρότυπο quiz, δημιούργησε το δικό σου quiz με βάση τις οδηγίες, αποθήκευσέ το ως .json αρχείο και ανέβασέ το εδώ."
         ]),
 
         fileInput
@@ -751,9 +863,11 @@ function renderResultsView() {
                 )
         ),
 
-        el("div", { className: "nav-row" }, [
+        el("div", {
+            style: "display:flex; justify-content:center; margin-top:20px;"
+        }, [
             el("button", {
-                className: "btn-secondary",
+                className: "btn-primary",
                 type: "button",
                 onClick: renderCategoryView
             }, [t("playAgain")])

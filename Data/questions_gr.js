@@ -25,7 +25,7 @@ const QUESTIONS_GR =
     "categories": [
         {
             "id": "general",
-            "name": "Γενικές Γνώσεις",
+            "name": "Γενικες Γνωσεις",
             "questions": [
                 {
                     "id": 1,
@@ -271,7 +271,7 @@ const QUESTIONS_GR =
         },
         {
             "id": "history",
-            "name": "Ιστορία",
+            "name": "Ιστορια",
             "questions": [
                 {
                     "id": 1,
@@ -517,7 +517,7 @@ const QUESTIONS_GR =
         },
         {
             "id": "sports",
-            "name": "Αθλητισμός",
+            "name": "Αθλητισμος",
             "questions": [
                 {
                     "id": 1,
@@ -763,7 +763,7 @@ const QUESTIONS_GR =
         },
         {
             "id": "tv_movies",
-            "name": "Τηλεόραση & Ταινίες",
+            "name": "Τηλεοραση & Ταινιες",
             "questions": [
                 {
                     "id": 1,
