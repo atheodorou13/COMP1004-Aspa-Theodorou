@@ -147,29 +147,29 @@ function validateQuizStructure(data) {
     data.categories.forEach((category, cIndex) => {
 
         if (!category.id || !category.name || !Array.isArray(category.questions)) {
-            throw new Error(`Invalid structure in category ${cIndex + 1}.`);
+            throw new Error(t("invalidCategoryStructure", cIndex + 1));
         }
 
         category.questions.forEach((q, qIndex) => {
 
             if (typeof q.id === "undefined") {
-                throw new Error(`Missing question id in category '${category.name}'.`);
+                throw new Error(t("missingQuestionId", qIndex + 1, category.name));
             }
 
             if (!q.text || !Array.isArray(q.options)) {
-                throw new Error(`Invalid question structure in '${category.name}', question ${qIndex + 1}.`);
+                throw new Error(t("invalidQuestionStructure", qIndex + 1, category.name));
             }
 
             if (q.options.length !== 4) {
-                throw new Error(`Question ${qIndex + 1} in '${category.name}' must have exactly 4 options.`);
+                throw new Error(t("invalidOptions", qIndex + 1, category.name));
             }
 
             if (typeof q.answerIndex !== "number" || q.answerIndex < 0 || q.answerIndex > 3) {
-                throw new Error(`Invalid answerIndex in '${category.name}', question ${qIndex + 1}. Must be 0–3.`);
+                throw new Error(t("invalidAnswerIndex", qIndex + 1, category.name));
             }
 
             if (!["easy", "medium", "hard"].includes(q.difficulty)) {
-                throw new Error(`Invalid difficulty in '${category.name}', question ${qIndex + 1}. Must be easy, medium or hard.`);
+                throw new Error(t("invalidDifficulty", qIndex + 1, category.name));
             }
 
         });
@@ -190,23 +190,32 @@ function loadCustomQuiz(file) {
 
             validateQuizStructure(parsed);
 
+            // Detect quiz language from category name
+            const firstCategory = parsed.categories[0]?.name || "";
+
+            if (/[Α-Ωα-ω]/.test(firstCategory)) {
+                state.language = "gr";
+            } else {
+                state.language = "en";
+            }
+
             state.data = parsed;
             state.categoryId = null;
             state.qIndex = 0;
             state.answers = [];
             state.answered = false;
 
-            alert("Custom quiz loaded successfully!");
+            alert(t("quizLoaded"));
             renderCategoryView();
 
         } catch (err) {
-            alert("Error parsing JSON file.\n\n" + err.message);
+            console.error(err);
+            alert(t("invalidQuiz") + "\n\n" + err.message);
         }
     };
 
     reader.readAsText(file);
 }
-
 
 /* ---------- Download quiz template English ---------- */
 function downloadTemplate() {
@@ -391,7 +400,15 @@ const UI_TEXT = {
         exportAll: "Export All Scores",
         enterName: "Your name...",
         nameAlert: "Please enter your name!",
-        saved: "Score saved!"
+        saved: "Score saved!",
+        quizLoaded: "Custom quiz loaded successfully!",
+        invalidQuiz: "Error parsing JSON file.",
+        invalidCategoryStructure: (c) => `Invalid structure in category ${c}.`,
+        missingQuestionId: (q, cat) => `Missing question id in category '${cat}'.`,
+        invalidQuestionStructure: (q, cat) => `Invalid question structure in '${cat}', question ${q}.`,
+        invalidOptions: (q, cat) => `Question ${q} in '${cat}' must have exactly 4 options.`,
+        invalidAnswerIndex: (q, cat) => `Invalid answerIndex in '${cat}', question ${q}. Must be 0–3.`,
+        invalidDifficulty: (q, cat) => `Invalid difficulty in '${cat}', question ${q}. Must be easy, medium or hard.`,
     },
     gr: {
         chooseLanguage: "Επιλογη Γλωσσας",
@@ -414,7 +431,15 @@ const UI_TEXT = {
         exportAll: "Εξαγωγη Ολων",
         enterName: "Ονομα...",
         nameAlert: "Συμπληρωσε ονομα!",
-        saved: "Αποθηκευτηκε!"
+        saved: "Αποθηκευτηκε!",
+        quizLoaded: "Το quiz φορτώθηκε επιτυχώς!",
+        invalidQuiz: "Σφάλμα στο αρχείο JSON.",
+        invalidCategoryStructure: (c) => `Μη έγκυρη δομή στην κατηγορία ${c}.`,
+        missingQuestionId: (q, cat) => `Λείπει το id της ερώτησης στην κατηγορία '${cat}'.`,
+        invalidQuestionStructure: (q, cat) => `Μη έγκυρη δομή ερώτησης στην κατηγορία '${cat}', ερώτηση ${q}.`,
+        invalidOptions: (q, cat) => `Η ερώτηση ${q} στην κατηγορία '${cat}' πρέπει να έχει ακριβώς 4 επιλογές.`,
+        invalidAnswerIndex: (q, cat) => `Μη έγκυρο answerIndex στην κατηγορία '${cat}', ερώτηση ${q}. Πρέπει να είναι 0–3.`,
+        invalidDifficulty: (q, cat) => `Μη έγκυρη δυσκολία στην κατηγορία '${cat}', ερώτηση ${q}.`
     }
 };
 
@@ -797,6 +822,31 @@ function renderQuestionView() {
     }
 }
 
+/* ---------- Export leaderboard as JSON ---------- */
+function exportScores() {
+
+    const scores = JSON.parse(localStorage.getItem("triviaScores") || "[]");
+
+    if (scores.length === 0) {
+        alert("No scores available to export.");
+        return;
+    }
+
+    const blob = new Blob([JSON.stringify(scores, null, 2)], {
+        type: "application/json"
+    });
+
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "trivia-scores.json";
+    a.click();
+
+    URL.revokeObjectURL(url);
+}
+
+
 /* ---------- Results view ---------- */
 function renderResultsView() {
     stopTimer();
@@ -816,6 +866,7 @@ function renderResultsView() {
     });
 
     const leaderboard = getLeaderboard();
+
 
     const view = el("div", { className: "card results-card" }, [
 
@@ -862,6 +913,14 @@ function renderResultsView() {
                     ])
                 )
         ),
+
+        el("div", { className: "choice-row centered" }, [
+            el("button", {
+                className: "btn-primary",
+                type: "button",
+                onClick: exportScores
+            }, [t("exportAll")])
+        ]),
 
         el("div", {
             style: "display:flex; justify-content:center; margin-top:20px;"
