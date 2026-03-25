@@ -1,4 +1,6 @@
 🎉🎉== Trivia Fiesta ==🎉🎉
+
+
 || Celebrate knowledge, one question at a time! ||
 
 == Module : COMP1004 Computing Practice 2025-2026 ==
