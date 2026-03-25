@@ -47,6 +47,7 @@ The project demonstrates practical application of front-end development principl
 * No external frameworks or libraries were used 
 
 == Architecture ==
+
 The application follows a Single Page Application (SPA) architecture, where all views are dynamically rendered without page reloads.
 
 A custom DOM helper function is used to generate UI elements programmatically, providing a structured and reusable approach to rendering without relying on external frameworks.
@@ -62,6 +63,7 @@ The application state is centrally managed through a state object that controls:
 * theme preference
 
 == Data layer ==
+
 Quiz data is stored in structured JSON format and loaded dynamically at runtime.
 
 Each quiz file is validated before use to ensure:
@@ -74,11 +76,13 @@ Each quiz file is validated before use to ensure:
 This validation ensures data integrity and prevents runtime errors when loading custom quizzes. 
 
 == JSON Input & Output ==
+
 The application supports both JSON input and output:
 * users can upload custom quiz files in JSON format
 * leaderboard scores can be exported as a JSON file
 
-== Hot to run ==  
+== How to run ==  
+
 1. Download or clone the repository
 2. Open index.html in a web browser
 3. Have fun! 
