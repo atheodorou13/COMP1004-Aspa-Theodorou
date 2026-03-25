@@ -12,7 +12,8 @@
 
 
 == Project overview ==
-Trivia Fiest is a browser-based Single Page Application (SPA) quiz system developed using HTML, CSS and JavaScript.
+
+Trivia Fiesta is a browser-based Single Page Application (SPA) quiz system developed using HTML, CSS and JavaScript.
 
 The application delivers a dynamic, bilingual quiz experience where users can:
 * Select quiz categories
@@ -35,7 +36,7 @@ The project demonstrates practical application of front-end development principl
 * Custom quiz JSON upload
 * Downloadable quiz template
 * Responsive layout
-* Accessibility-consious design
+* Accessibility-conscious design
 
 == Technologies Used ==
 * HTML
