@@ -104,11 +104,11 @@ function updateTimerDisplay() {
     }
 }
 function handleTimeOut() {
-    if (state.answered) return;
+    if (state.answers[state.qIndex] !== undefined) return;
 
     state.answered = true;
     state.answers[state.qIndex] = null;
-    state.timeout = true;   // ← mark timeout
+    state.timeout = true;
 
     if (state.soundOn) {
         wrongSound.currentTime = 0;
@@ -714,7 +714,10 @@ function renderQuestionView() {
             const isCorrect = idx === q.answerIndex;
 
             let cls = "answer";
-            if (state.answered) {
+            const alreadyAnswered = state.answers[state.qIndex] !== undefined;
+
+            if (alreadyAnswered) {
+
                 if (isCorrect) cls += " correct";
                 else if (isSelected) cls += " wrong";
                 else cls += " disabled";
@@ -724,7 +727,7 @@ function renderQuestionView() {
                 className: cls,
                 type: "button",
                 onClick: () => {
-                    if (state.answered) return;
+                    if (state.answers[state.qIndex] !== undefined) return;
 
                     state.answers[state.qIndex] = idx;
                     state.answered = true;
