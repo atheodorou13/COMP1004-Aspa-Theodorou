@@ -1,4 +1,6 @@
-== Trivia Fiesta ==
+🎉🎉== Trivia Fiesta ==🎉🎉
+
+
 || Celebrate knowledge, one question at a time! ||
 
 == Module : COMP1004 Computing Practice 2025-2026 ==
@@ -6,9 +8,14 @@
 * Student number: 10911878
 * Stand-up leader: Dr Lauren Ansell
 
+== Notes ==
+* this project was developed as part of a university module and follows specified constraints, including the use of front-end technologies only
+* all data is stored locally using browser storage
+
 
 == Project overview ==
-Trivia Fiest is a browser-based Single Page Application (SPA) quiz system developed using vanilla HTML, CSS and JavaScript.
+
+Trivia Fiesta is a browser-based Single Page Application (SPA) quiz system developed using HTML, CSS and JavaScript.
 
 The application delivers a dynamic, bilingual quiz experience where users can:
 * Select quiz categories
@@ -31,7 +38,7 @@ The project demonstrates practical application of front-end development principl
 * Custom quiz JSON upload
 * Downloadable quiz template
 * Responsive layout
-* Accessibility-consious design
+* Accessibility-conscious design
 
 == Technologies Used ==
 * HTML
@@ -39,23 +46,45 @@ The project demonstrates practical application of front-end development principl
 * JavaScript
 * LocalStorage
 * JSON Data structures
-* Custom DOM Rendering Helper
 * No external frameworks or libraries were used 
 
 == Architecture ==
-A single page application architecture was followed. A custom helper function is used to dynamically generate DOM elements, mimicking component-based rendering without using a framework.
+
+The application follows a Single Page Application (SPA) architecture, where all views are dynamically rendered without page reloads.
+
+A custom DOM helper function is used to generate UI elements programmatically, providing a structured and reusable approach to rendering without relying on external frameworks.
 
 The application state is centrally managed through a state object that controls:
-* current language
+* selected language
 * selected category
-* difficulty
-* questions index
+* selected difficulty
+* current question index
 * user answers
 * timer
 * sound preference
 * theme preference
 
 == Data layer ==
-* questions are loaded dynamically from structured files
-* each file follows input validation ensuring data integrity
 
+Quiz data is stored in structured JSON format and loaded dynamically at runtime.
+
+Each quiz file is validated before use to ensure:
+* correct structure
+* valid question format
+* exactly four answer options
+* valid answer indices
+* supported difficulty levels
+
+This validation ensures data integrity and prevents runtime errors when loading custom quizzes. 
+
+== JSON Input & Output ==
+
+The application supports both JSON input and output:
+* users can upload custom quiz files in JSON format
+* leaderboard scores can be exported as a JSON file
+
+== How to run ==  
+
+1. Download or clone the repository
+2. Open index.html in a web browser
+3. Have fun! 
